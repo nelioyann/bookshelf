@@ -1,55 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./styles/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./styles/style.css" />
     <meta name="theme-color" content="#592acb" />
-    <meta name="description" content="A crud application made with firebase">
+    <meta name="description" content="A crud application made with firebase" />
     <title>Firecrud</title>
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="manifest.json" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
     <meta name="apple-mobile-web-app-title" content="Firecrud" />
     <meta property="og:image" content="./images/icons/icon-152x152.png" />
     <link rel="apple-touch-icon" href="./images/icons/icon-152x152.png" />
-    <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico">
-    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-</head>
+    <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
+  </head>
 
-<body>
-
+  <body>
     <header>
-        <h1>Firecrud</h1>
-        <nav>
-            <ul>
-                <li>
-                    <button>Create Account</button>
-                </li>
-                <li>
-                    <button>Log In</button>
-                </li>
-            </ul>
-        </nav>
+      <div>
+        <img src="./images/icons/icon-72x72.png" alt="Logo" />
+      </div>
+      <h1>Firecrud</h1>
     </header>
-    <main>
-        <form action="POST">
-            <section><label for="email">Email</label><input type="text"></section>
-            <section><label for="password">Password</label><input type="text"></section>
-            <button>Create Account</button>
-        </form>
-        <form action="POST">
-            <section><label for="email">Email</label><input type="text"></section>
-            <section><label for="password">Password</label><input type="text"></section>
-            <button>LogIn</button>
-        </form>
+    <nav class="navigation">
+      <ul>
+        <li>
+          <button>Sign Up</button>
+        </li>
+        <li>
+          <button>Log In</button>
+        </li>
+        <li>
+          <button>Log Out</button>
+        </li>
+      </ul>
+    </nav>
+    <main class="auth">
+      <form class="auth__signup">
+        <section class="auth__section">
+          <label for="new-email">Email</label><input id="new-email" type="email" />
+        </section>
+        <section class="auth__section">
+          <label for="new-password">Password</label
+          ><input id="new-password" type="password" />
+        </section>
+        <!-- <section class="auth__section">
+          <label for="username">Username</label
+          ><input id="username" type="text" />
+        </section> -->
+        <button>Create Account</button>
+      </form>
+      <form class="auth__signin">
+        <section class="auth__section">
+          <label for="email">Email</label><input id="email" type="text" autocomplete="email"/>
+        </section>
+        <section class="auth__section">
+          <label for="password">Password</label><input id="password" type="text" />
+        </section>
+        <button>LogIn</button>
+      </form>
     </main>
+    <aside></aside>
 
-
-
-
+    <footer></footer>
 
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script> -->
     <!-- <script src="./scripts/app.js"></script> -->
@@ -61,22 +80,21 @@
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
 
     <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyBvvccWJLjW4bTKI1q_TT7_cWV-T82V1EU",
-            authDomain: "fir-crud-1acd2.firebaseapp.com",
-            databaseURL: "https://fir-crud-1acd2.firebaseio.com",
-            projectId: "fir-crud-1acd2",
-            storageBucket: "fir-crud-1acd2.appspot.com",
-            messagingSenderId: "271749246458",
-            appId: "1:271749246458:web:ef45920179257224b10843",
-            measurementId: "G-SXH4RKNL6F"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        firebase.analytics();
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBvvccWJLjW4bTKI1q_TT7_cWV-T82V1EU",
+        authDomain: "fir-crud-1acd2.firebaseapp.com",
+        databaseURL: "https://fir-crud-1acd2.firebaseio.com",
+        projectId: "fir-crud-1acd2",
+        storageBucket: "fir-crud-1acd2.appspot.com",
+        messagingSenderId: "271749246458",
+        appId: "1:271749246458:web:ef45920179257224b10843",
+        measurementId: "G-SXH4RKNL6F",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
     </script>
     <script src="./scripts/script.js"></script>
-</body>
-
+  </body>
 </html>
