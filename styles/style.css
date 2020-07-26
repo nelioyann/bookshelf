@@ -1,0 +1,63 @@
+:root {
+  font-size: 16px;
+}
+
+@media screen and (min-width: 320px) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    font-size: 19px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    font-size: 23px;
+  }
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+  overflow: hidden;
+  padding: 1em;
+  min-height: 100vh;
+  font-family: serif;
+  color: #2196f3;
+  background-color: #252525;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex-jc-c {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.flex-jc-sb {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.flex-ai-c {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,41 @@
+:root {
+	font-size: 16px;
+	@include breakpoint-up($size_mobile) {
+		font-size: 16px;
+	}
+	@include breakpoint-up($size_tablet) {
+		font-size: 19px;
+	}
+	@include breakpoint-up($size_desktop) {
+		font-size: 23px;
+	}
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	line-height: 1.4;
+	overflow: hidden;
+	padding: 1em;
+	min-height: 100vh;
+	font-family: $font_body;
+	color: $color_light;
+	background-color: $color_dark;
+}
+
+.flex {
+	display: flex;
+	&-jc-c {
+		justify-content: center;
+	}
+	&-jc-sb {
+		justify-content: space-between;
+	}
+	&-ai-c {
+		align-items: center;
+	}
+}
