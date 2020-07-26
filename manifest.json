@@ -1,6 +1,6 @@
 {
-    "name": "Boiler",
-    "short_name": "Boiler",
+    "name": "Firecrud",
+    "short_name": "Firecrud",
     "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#585a79",
