@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500&display=swap");
 :root {
   font-size: 16px;
 }
@@ -32,9 +33,9 @@ body {
   overflow: hidden;
   padding: 1em;
   min-height: 100vh;
-  font-family: serif;
-  color: #252525;
-  background-color: #f0f0f0;
+  font-family: Roboto, sans-serif;
+  color: #f0f0f0;
+  background-color: #000000;
 }
 
 .flex {
@@ -59,5 +60,48 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header__title {
+  font-weight: 400;
+}
+
+.navigation__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0;
+  list-style-type: none;
+}
+
+.navigation__items__item .link {
+  background-color: transparent;
+  color: #f0f0f0;
+  border: none;
+  font-size: 1.5em;
+  position: relative;
+  font-weight: 100;
+  opacity: 0.3;
+}
+
+.navigation__items__item .link-active {
+  opacity: 1;
+}
+
+.navigation__items__item .link-active:after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #148FE8;
 }
 /*# sourceMappingURL=style.css.map */

@@ -2,3 +2,44 @@
 @import "variables";
 @import "globals";
 
+
+.header{
+    display: flex;
+    &__logo{}
+    &__title{
+        font-weight: 400;
+    }
+}
+.navigation{
+    &__items{
+        display: flex;
+        padding: 0;
+        list-style-type: none;
+        &__item{
+            .link{
+                background-color: transparent;
+                color: $color_light;
+                border: none;
+                font-size: 1.5em;
+                position: relative;
+                font-weight: 100;
+                opacity: 0.3;
+                &-active{
+                    opacity: 1;
+                    // border-bottom: 1px solid $color_primary;
+                    &:after{
+                        content: "";
+                        position: absolute;
+                        bottom: -5px;
+                        left: 0;
+                        height: 5px ;
+                        width: 100%;
+                        border-radius: 5px;
+                        background-color: $color_primary;
+                    }
+                    
+                }
+            }
+        }
+    }
+}

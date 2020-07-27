@@ -1,7 +1,10 @@
-$color_dark: #252525;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500&display=swap');
+$color_dark: #000000;
 $color_light: #f0f0f0;
+$color_primary: #148FE8;
+
 $font_headings: sans-serif;
-$font_body: serif;
+$font_body: Roboto, sans-serif;
 $size_mobile: 320px;
 $size_tablet: 768px;
 $size_desktop: 1024px;
