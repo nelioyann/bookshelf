@@ -29,10 +29,10 @@
     <nav class="navigation">
         <ul class="navigation__items">
             <li class="navigation__items__item">
-                <button class="link link-active">Sign Up</button>
+                <button class="link ">Sign Up</button>
             </li>
             <li class="navigation__items__item">
-                <button class="link">Log In</button>
+                <button class="link link-active">Log In</button>
             </li>
             <li class="navigation__items__item">
                 <button class="link">Log Out</button>
@@ -43,7 +43,7 @@
         <form class="auth__form auth__signup">
             <section class="auth__section">
                 <label class="auth__section__label" for="new-email">Email</label><input class="auth__section__input"
-                    id="new-email" type="email" placeholder="Enter your email"/>
+                    id="new-email" type="email" placeholder="Enter your email" />
             </section>
             <section class="auth__section">
                 <label class="auth__section__label" for="new-password">Password</label><input
@@ -53,18 +53,26 @@
           <label class="auth__section__label" for="username">Username</label
           ><input class="auth__section__input" id="username" type="text" />
         </section> -->
-            <button class="auth__form__button auth__form__button__signup">Create Account</button>
+            <button class="auth__form__button auth__form__button__signup">
+                Create Account
+            </button>
         </form>
         <form class="auth__form auth__signin">
             <section class="auth__section">
                 <label class="auth__section__label" for="email">Email</label><input class="auth__section__input"
-                    id="email" type="text" autocomplete="email" />
+                    id="email" name="email" type="email" autocomplete="email" placeholder="Enter your email" required
+                    autofocus />
+                <span class="auth__section__span"></span>
             </section>
             <section class="auth__section">
                 <label class="auth__section__label" for="password">Password</label><input class="auth__section__input"
-                    id="password" type="text" />
+                    id="password" type="password" placeholder="Enter your pasword" name="password" required />
+                <span class="auth__section__span"></span>
+
             </section>
-            <button class="auth__form__button auth__form__button__signin">LogIn</button>
+            <button class="auth__form__button auth__form__button__signin">
+                Login
+            </button>
         </form>
     </main>
     <aside></aside>

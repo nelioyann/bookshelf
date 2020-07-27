@@ -61,7 +61,7 @@
 
 .auth{
     padding: 25px 0;
-    &__signin{
+    &__signup{
         display: none;
     }
     &__form{
@@ -75,38 +75,57 @@
             &__label{
                 font-size: 1.1em;
                 font-weight: $font_bold;
+                display: block;
+                width: max-content;
             }
             &__input{
-                background-color: transparent;
+                background-color: rgba($color_light, 0.1);
                 border: none;
-                padding: 1em 0;
-                font-size: 1em;
+                outline: none;
+                padding: 1em 0.5em;
+                font-size: 0.9em;
+                border-radius: 3px 3px 0 0;
                 color: $color_light;
                 margin: 5px 0 0;
+                &[type="email"]:not(:placeholder-shown):invalid{
+                    &+ .auth__section__span{
+                        background-color: red;
+
+                    }
+                }
+                &:focus{
+                    // outline-color: $color_primary;
+                    // border: none;
+                    &+ .auth__section__span{
+                        background-color: $color_primary;
+                    }
+                }
                 &::placeholder{
                     font-size: 1.3em;
                     color: rgba($color_light, 0.3);
                     font-weight: $font_light;
                 }
             }
-            &:after{
+            &__span{
                 content: "";
                 position: absolute;
                 bottom: -5px;
                 height: 5px;
                 width: 100%;
-                border-radius: 5px;
+                border-radius:0 0 5px 5px;
                 background-color: rgba($color_light, 0.3);
             }
         }
         &__button{
-            background-color: $color_primary;
-            padding: 1em;
+            background-color: $color_light;
+            color: $color_dark;
+            padding: 0.5em 3em;
+            border-radius: 5px;
             display: block;
+            font-weight: $font_bold;
             border: none;
-            margin: auto;
+            margin: 50px auto 0;
             font-size: 1em;
-            color: $color_light;
 
         }
     }
