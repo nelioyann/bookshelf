@@ -5,14 +5,29 @@
 
 .header{
     display: flex;
-    &__logo{}
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 0;
+    &__logo{
+        width: 50px;
+        height: 50px;
+        &__image{
+            width: 100%;
+        }
+    }
     &__title{
         font-weight: 400;
+        font-size: 0.5em;
+        display: none;
     }
 }
 .navigation{
+    padding: 25px 0;
     &__items{
         display: flex;
+        width: 100%;
+        justify-content: space-around;
         padding: 0;
         list-style-type: none;
         &__item{
@@ -21,8 +36,8 @@
                 color: $color_light;
                 border: none;
                 font-size: 1.2em;
+                padding: 0;
                 position: relative;
-                
                 opacity: 0.3;
                 &-active{
                     opacity: 1;
@@ -30,9 +45,9 @@
                     &:after{
                         content: "";
                         position: absolute;
-                        bottom: -5px;
+                        bottom: -10px;
                         left: 0;
-                        height: 5px ;
+                        height: 3px ;
                         width: 100%;
                         border-radius: 5px;
                         background-color: $color_primary;
@@ -40,6 +55,59 @@
                     
                 }
             }
+        }
+    }
+}
+
+.auth{
+    padding: 25px 0;
+    &__signin{
+        display: none;
+    }
+    &__form{
+        width: 100%;
+        .auth__section{
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            margin: 0 0 50px 0;
+
+            &__label{
+                font-size: 1.1em;
+                font-weight: $font_bold;
+            }
+            &__input{
+                background-color: transparent;
+                border: none;
+                padding: 1em 0;
+                font-size: 1em;
+                color: $color_light;
+                margin: 5px 0 0;
+                &::placeholder{
+                    font-size: 1.3em;
+                    color: rgba($color_light, 0.3);
+                    font-weight: $font_light;
+                }
+            }
+            &:after{
+                content: "";
+                position: absolute;
+                bottom: -5px;
+                height: 5px;
+                width: 100%;
+                border-radius: 5px;
+                background-color: rgba($color_light, 0.3);
+            }
+        }
+        &__button{
+            background-color: $color_primary;
+            padding: 1em;
+            display: block;
+            border: none;
+            margin: auto;
+            font-size: 1em;
+            color: $color_light;
+
         }
     }
 }
