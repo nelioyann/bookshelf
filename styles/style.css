@@ -11,13 +11,13 @@
 
 @media screen and (min-width: 768px) {
   :root {
-    font-size: 19px;
+    font-size: 18px;
   }
 }
 
 @media screen and (min-width: 1024px) {
   :root {
-    font-size: 23px;
+    font-size: 22px;
   }
 }
 
@@ -26,10 +26,15 @@
           box-sizing: border-box;
 }
 
+html {
+  overflow: hidden;
+}
+
 body {
   margin: 0;
   padding: 0;
   line-height: 1.4;
+  width: 100vw;
   overflow: hidden;
   padding: 0 1em;
   min-height: 100vh;
@@ -68,6 +73,7 @@ button {
 
 .body__section {
   margin: auto;
+  overflow-x: hidden;
 }
 
 @media screen and (min-width: 320px) {
@@ -167,35 +173,17 @@ button {
 }
 
 .auth {
-  padding: 50px 0;
+  margin-top: 50px;
   position: relative;
 }
 
-@media screen and (min-width: 320px) {
-  .auth {
-    max-width: 768px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .auth {
-    max-width: 1024px;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .auth {
-    max-width: 1024px;
-  }
-}
-
 .auth__signup {
-  display: block;
+  position: absolute;
+  top: 0;
 }
 
 .auth__form {
   width: 100%;
-  position: absolute;
 }
 
 .auth__form .auth__section {

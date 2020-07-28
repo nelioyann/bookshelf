@@ -5,6 +5,7 @@
 
 .body__section{
     margin: auto;
+    overflow-x: hidden;
     @include breakpoint-up($size_mobile){
         max-width: $size_tablet;
     }
@@ -79,23 +80,16 @@
 }
 
 .auth{
-    padding: 50px 0;
+    // padding: 50px 0;
+    margin-top: 50px;
     position: relative;
-    @include breakpoint-up($size_mobile){
-        max-width: $size_tablet;
-    }
-    @include breakpoint-up($size_tablet){
-        max-width: $size_desktop;
-    }
-    @include breakpoint-up($size_desktop){
-        max-width: $size_desktop;
-    }
     &__signup{
-        display: block;
+        position: absolute;
+        top: 0;
+
     }
     &__form{
         width: 100%;
-        position: absolute;
         .auth__section{
             display: flex;
             flex-direction: column;
