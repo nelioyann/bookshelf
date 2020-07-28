@@ -66,6 +66,28 @@ button {
   border: none;
 }
 
+.body__section {
+  margin: auto;
+}
+
+@media screen and (min-width: 320px) {
+  .body__section {
+    max-width: 768px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .body__section {
+    max-width: 1024px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .body__section {
+    max-width: 1024px;
+  }
+}
+
 .header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -113,10 +135,16 @@ button {
   list-style-type: none;
 }
 
+.navigation__items__item-signout {
+  display: none;
+}
+
 .navigation__items__item .link {
   background-color: transparent;
   color: #f0f0f0;
   border: none;
+  outline: none;
+  cursor: pointer;
   font-size: 1.2em;
   padding: 0;
   position: relative;
@@ -139,15 +167,35 @@ button {
 }
 
 .auth {
-  padding: 25px 0;
+  padding: 50px 0;
+  position: relative;
+}
+
+@media screen and (min-width: 320px) {
+  .auth {
+    max-width: 768px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .auth {
+    max-width: 1024px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .auth {
+    max-width: 1024px;
+  }
 }
 
 .auth__signup {
-  display: none;
+  display: block;
 }
 
 .auth__form {
   width: 100%;
+  position: absolute;
 }
 
 .auth__form .auth__section {

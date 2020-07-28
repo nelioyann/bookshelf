@@ -20,43 +20,26 @@
 </head>
 
 <body>
-    <header class="header">
+    <header class="body__section header">
         <div class="header__logo">
             <img class="header__logo__image" src="./images/icons/icon-72x72.png" alt="Logo" />
         </div>
         <h1 class="header__title">Firecrud</h1>
     </header>
-    <nav class="navigation">
+    <nav class="body__section navigation">
         <ul class="navigation__items">
-            <li class="navigation__items__item">
-                <button class="link ">Sign Up</button>
+            <li class="navigation__items__item navigation__items__item-signin">
+                <button data-target="auth__signin" class="link link-active">Log In</button>
             </li>
-            <li class="navigation__items__item">
-                <button class="link link-active">Log In</button>
+            <li class="navigation__items__item navigation__items__item-signup">
+                <button data-target="auth__signup" class="link ">Sign Up</button>
             </li>
-            <li class="navigation__items__item">
+            <li class="navigation__items__item navigation__items__item-signout">
                 <button class="link">Log Out</button>
             </li>
         </ul>
     </nav>
-    <main class="auth">
-        <form class="auth__form auth__signup">
-            <section class="auth__section">
-                <label class="auth__section__label" for="new-email">Email</label><input class="auth__section__input"
-                    id="new-email" type="email" placeholder="Enter your email" />
-            </section>
-            <section class="auth__section">
-                <label class="auth__section__label" for="new-password">Password</label><input
-                    class="auth__section__input" id="new-password" type="password" placeholder="Enter your password" />
-            </section>
-            <!-- <section class="auth__section">
-          <label class="auth__section__label" for="username">Username</label
-          ><input class="auth__section__input" id="username" type="text" />
-        </section> -->
-            <button class="auth__form__button auth__form__button__signup">
-                Create Account
-            </button>
-        </form>
+    <main class="body__section auth">
         <form class="auth__form auth__signin">
             <section class="auth__section">
                 <label class="auth__section__label" for="email">Email</label><input class="auth__section__input"
@@ -74,6 +57,24 @@
                 Login
             </button>
         </form>
+        <form class="auth__form auth__signup">
+            <section class="auth__section">
+                <label class="auth__section__label" for="new-email">Email</label><input class="auth__section__input"
+                    id="new-email" type="email" placeholder="Enter your email" />
+            </section>
+            <section class="auth__section">
+                <label class="auth__section__label" for="new-password">Password</label><input
+                    class="auth__section__input" id="new-password" type="password" placeholder="Enter your password" />
+            </section>
+            <!-- <section class="auth__section">
+          <label class="auth__section__label" for="username">Username</label
+          ><input class="auth__section__input" id="username" type="text" />
+        </section> -->
+            <button class="auth__form__button auth__form__button__signup">
+                Create Account
+            </button>
+        </form>
+        
     </main>
     <aside></aside>
 
@@ -104,6 +105,9 @@
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js" integrity="sha512-pCPP9sfLW9T7EZiw725jUl+ux032sjGhFE+ZAx00C1iO55ZmZJWpfNGbDf2ZF5b0UqxRqSW548PbZEWmH+S7pA==" crossorigin="anonymous"></script>
+    
+    <script src="./scripts/animations.js"></script>
     <script src="./scripts/script.js"></script>
 </body>
 
