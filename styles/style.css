@@ -140,8 +140,12 @@ button {
   list-style-type: none;
 }
 
-.navigation__items__item-signout {
+.navigation__items__item {
   display: none;
+}
+
+.navigation__items__item-signout {
+  display: block;
 }
 
 .navigation__items__item .link {
