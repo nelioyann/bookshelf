@@ -67,8 +67,9 @@ const setupBooks = (data) => {
         // Show books
         $(".auth").style.display = "none"
         gsap.timeline()
-        .to(".books", {display: "flex", overflow: "auto"})
+        .to(".books", {display: "flex"})
         .to(".book", {autoAlpha: 1, duration: 1, delay: 0.3})
+        .to(".books", {overflow: "auto"})
 
         }),
         ((err) => {
