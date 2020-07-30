@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (user) {
       // account info
       // const html = `<div> Logged in as ${user.email}</div>`
-      // accountDetails.innerHTML = html;
+      $(".header__title").innerHTML = `Logged in as ${user.email}`;
 
       //toggle UI elements
       $$(".logged-in").forEach((item) => (item.style.display = "block"));
@@ -12,6 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       // hide account info
       //   accountDetails.innerHTML = ""
+      $(".header__title").innerHTML = `Log in to view your library`;
+
       lg("hide logged-in");
       $$(".logged-in").forEach((item) => {
         item.style.display = "none";
@@ -33,9 +35,9 @@ const setupBooks = (data) => {
     data.forEach((doc) => {
       const book = doc.data();
       const li = `
-				<li>
-					<div class="">${book.title}</div>
-					<div class="">${book.completed}</div>
+				<li class="book">
+					<div class="book__title">${book.title}</div>
+					<div class="book__completion">${book.completed ? "finished": "ongoing"}</div>
 				</li>
 			`;
       html += li;
@@ -51,23 +53,36 @@ const setupBooks = (data) => {
   auth.onAuthStateChanged((user) => {
     if (user) {
       //   account information
-      lg("user logged in");
+      lg("user logged inn");
+      lg(user)
       // Hide forms
       hideForms();
 
       // get data
       db.collection("books")
-        .onSnapshot((snapshot) => {
-          setupBooks(snapshot.docs);
-          setupUI(user);
-        })
-        // .catch((err) => {
-        //   console.log(err.message);
-        // });
+      .onSnapshot((snapshot) => {
+        setupBooks(snapshot.docs);
+        setupUI(user);
+        
+        // Show books
+        $(".auth").style.display = "none"
+        gsap.timeline()
+        .to(".books", {display: "flex"})
+        .to(".book", {autoAlpha: 1, duration: 1, delay: 0.3})
+
+        }),
+        ((err) => {
+          console.log(err.message);
+        });
     } else {
       console.log("user logged out");
       signin_tl.reverse();
       // signup_tl.reverse(false)
+      gsap.timeline()
+      .to(".book", {autoAlpha: 0, duration: 0.3})
+      .to(".books", {display:"none"})
+      .to(".auth", {display:"block"})
+      // $(".auth").style.display = "block"
       setupUI();
       // setupGuides([]);
     }

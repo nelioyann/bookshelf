@@ -31,11 +31,12 @@
         }
     }
     &__title{
-        font-weight: 400;
-        font-size: 0.5em;
-        display: none;
+        font-weight: $font_light;
+        font-size: 1em;
+        // display: none;
     }
 }
+
 .navigation{
     padding: 25px 0;
     &__items{
@@ -87,7 +88,9 @@
     &__signup{
         position: absolute;
         top: 0;
-
+    }
+    &__signin{
+        opacity: 0;
     }
     &__form{
         width: 100%;
@@ -152,6 +155,35 @@
             margin: 50px auto 0;
             font-size: 1em;
 
+        }
+    }
+}
+
+.books{
+    // position: absolute;
+    // top: 200px;
+    overflow-x: auto;
+    // margin-top: -350px;
+    // width: 340px;
+    &__list{
+        display: flex;
+        // min-width: 250px;
+        width: fit-content;
+        .book{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 200px;
+            height: 300px;
+            border: 1px solid $color_light;
+            border-radius: 5px;
+            margin: 5px;
+            padding: 0.5em;
+            opacity: 0;
+            &__title{
+                font-weight: $font_bold;
+                font-size: 1.5em;
+            }
         }
     }
 }

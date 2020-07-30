@@ -24,6 +24,10 @@ const signup_tl = gsap.timeline({paused:true, reversed: true }).to(".auth__signu
   duration: 1,
 });
 
+// const books_tl = gsap.timeline({paused: true, reversed: true}).to(".book",{
+//   autoAlpha: 1,
+//   duration: 1
+// })
 
 // signin_tl.play()
 // signup_tl.play()

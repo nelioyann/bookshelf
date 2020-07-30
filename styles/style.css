@@ -71,6 +71,11 @@ button {
   border: none;
 }
 
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
 .body__section {
   margin: auto;
 }
@@ -120,9 +125,8 @@ button {
 }
 
 .header__title {
-  font-weight: 400;
-  font-size: 0.5em;
-  display: none;
+  font-weight: 100;
+  font-size: 1em;
 }
 
 .navigation {
@@ -183,6 +187,10 @@ button {
 .auth__signup {
   position: absolute;
   top: 0;
+}
+
+.auth__signin {
+  opacity: 0;
 }
 
 .auth__form {
@@ -273,5 +281,43 @@ button {
   border: none;
   margin: 50px auto 0;
   font-size: 1em;
+}
+
+.books {
+  overflow-x: auto;
+}
+
+.books__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.books__list .book {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 200px;
+  height: 300px;
+  border: 1px solid #f0f0f0;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 0.5em;
+  opacity: 0;
+}
+
+.books__list .book__title {
+  font-weight: 500;
+  font-size: 1.5em;
 }
 /*# sourceMappingURL=style.css.map */
