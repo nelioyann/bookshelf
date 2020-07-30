@@ -46,7 +46,10 @@
           <button class="link link__signout" >Log Out</button>
         </li>
         <li class="navigation__items__item navigation__items__item-signout logged-in">
-          <button class="link link__books" >Books</button>
+          <button data-target="books__list" class="link link__books" >Books</button>
+        </li>
+        <li class="navigation__items__item navigation__items__item-signout logged-in">
+          <button data-target="books__add" class="link link__books" >Add Book</button>
         </li>
       </ul>
     </nav>
@@ -114,7 +117,11 @@
         </button>
       </form>
     </main>
-    <aside></aside>
+    <aside class="body__section books">
+      <ul class="books__list">
+
+      </ul>
+    </aside>
 
     <footer></footer>
 

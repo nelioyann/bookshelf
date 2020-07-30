@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
     // lg("This page is working")
     // lg($("body"))
 
+    
+
     const switchForms = (e) =>{
         let target = (e.target.getAttribute("data-target"))
         lg(target)
@@ -20,6 +22,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
         } else{
             signin_tl.reverse()
             signup_tl.reverse()
+            lg(signin_tl.reversed())
+           lg(signup_tl.reversed())
         }
 
     }
@@ -29,37 +33,36 @@ document.addEventListener("DOMContentLoaded", ()=>{
     // Parent element of guides
 // const guideList = document.querySelector(".guides");
 
-// // Conditional menu
-// const loggedOutLinks = document.querySelectorAll(".logged-out");
-// const loggedInLinks = document.querySelectorAll(".logged-in");
-// const accountDetails = document.querySelector('.account-details')
 
 
-const setupUI = (user) => {
-  if (user) {
 
-	// account info
-	// const html = `<div> Logged in as ${user.email}</div>`
-	// accountDetails.innerHTML = html;
+// const setupUI = (user) => {
+//   if (user) {
 
-    //toggle UI elements
-    $$(".logged-in").forEach(
-      (item) => (item.style.display = "block")
-    );
-    $(".logged-out").forEach(
-      (item) => (item.style.display = "none")
-    );
-  } else {
-	  // hide account info
-	//   accountDetails.innerHTML = ""
-    $$(".logged-in").forEach((item) => {
-      item.style.display = "none";
-    });
-    $$(".logged-out").forEach(
-      (item) => (item.style.display = "block")
-    );
-  }
-};
+// 	// account info
+// 	const html = `<div> Logged in as ${user.email}</div>`
+// 	// accountDetails.innerHTML = html;
+
+//     //toggle UI elements
+//     $$(".logged-in").forEach(
+//       (item) => (item.style.display = "block")
+//     );
+//     $(".logged-out").forEach(
+//       (item) => (item.style.display = "none")
+//     );
+//   } else {
+// 	  // hide account info
+// 	//   accountDetails.innerHTML = ""
+//     $$(".logged-in").forEach((item) => {
+//       item.style.display = "none";
+//     });
+//     $$(".logged-out").forEach(
+//       (item) => (item.style.display = "block")
+//     );
+//   }
+// };
+
+
 
 // const setupGuides = (data) => {
 //   if (data.length) {

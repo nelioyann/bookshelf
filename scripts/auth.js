@@ -1,119 +1,138 @@
-document.addEventListener("DOMContentLoaded", ()=>{
-    
-
-const setupUI = (user) => {
+document.addEventListener("DOMContentLoaded", () => {
+  const setupUI = (user) => {
     if (user) {
-  
       // account info
       // const html = `<div> Logged in as ${user.email}</div>`
       // accountDetails.innerHTML = html;
-  
+
       //toggle UI elements
-      $$(".logged-in").forEach(
-        (item) => (item.style.display = "block")
-      );
-      $$(".logged-out").forEach(
-        (item) => (item.style.display = "none")
-        );
-        lg("hide logged-out")
+      $$(".logged-in").forEach((item) => (item.style.display = "block"));
+      $$(".logged-out").forEach((item) => (item.style.display = "none"));
+      lg("hide logged-out");
     } else {
-        // hide account info
+      // hide account info
       //   accountDetails.innerHTML = ""
-      lg("hide logged-in")
+      lg("hide logged-in");
       $$(".logged-in").forEach((item) => {
         item.style.display = "none";
       });
-      $$(".logged-out").forEach(
-        (item) => (item.style.display = "block")
-      );
+      $$(".logged-out").forEach((item) => (item.style.display = "block"));
     }
   };
-// listen for auth status changes
-auth.onAuthStateChanged((user) => {
-  if (user) {
-    //   account information
-    lg("user logged in")
-    // get data
-    // db.collection("guides")
-    //   .onSnapshot((snapshot) => {
-    //     setupGuides(snapshot.docs);
-        setupUI(user);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err.message);
-    //   });
+
+  const hideForms = () => {
+    signin_tl.play();
+    signup_tl.reverse();
+  };
+
+
+const setupBooks = (data) => {
+  lg(data)
+  if (data.length) {
+    let html = "";
+    data.forEach((doc) => {
+      const book = doc.data();
+      const li = `
+				<li>
+					<div class="">${book.title}</div>
+					<div class="">${book.completed}</div>
+				</li>
+			`;
+      html += li;
+    });
+    $(".books__list").innerHTML = html;
   } else {
-    console.log("user logged out");
-    setupUI();
-    // setupGuides([]);
+    $(".books__list").innerHTML = `<h5 class="">Login to see guides</h5>`;
   }
-});
+};
 
-//create guide
-//   const createForm = document.querySelector("#create-form");
-//   createForm.addEventListener("submit", (e) => {
-//     e.preventDefault();
 
-//     db.collection("guides")
-//       .add({
-//         title: createForm["title"].value,
-//         content: createForm["content"].value,
-//       })
-//       .then(() => {
-//         // close modal and reset form
+  // listen for auth status changes
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      //   account information
+      lg("user logged in");
+      // Hide forms
+      hideForms();
 
-//         const modal = document.querySelector("#modal-create");
-//         M.Modal.getInstance(modal).close();
-//         createForm.reset();
-//       })
-//       .catch((err) => {
-//         console.log(err.message);
-//       });
-//   });
-
-// signup
-
-// console.log("test")
-// const signupForm = document.querySelector(".auth__form");
-// lg($(".auth__signup"))
-$(".auth__signup").addEventListener("submit", (e) => {
-  e.preventDefault();
-
-//   get user info
-  const email = $(".auth__signup")["new-email"].value;
-//   lg(email)
-  const password = $(".auth__signup")["new-password"].value;
-    // lg(email)
-//   sign up the user
-  auth.createUserWithEmailAndPassword(email, password).then((cred) => {
-    // reset form
-    $(".auth__signup").reset();
+      // get data
+      db.collection("books")
+        .onSnapshot((snapshot) => {
+          setupBooks(snapshot.docs);
+          setupUI(user);
+        })
+        // .catch((err) => {
+        //   console.log(err.message);
+        // });
+    } else {
+      console.log("user logged out");
+      signin_tl.reverse();
+      // signup_tl.reverse(false)
+      setupUI();
+      // setupGuides([]);
+    }
   });
-});
 
-// logout
-// const logout = document.querySelector("#logout");
-$(".link__signout").addEventListener("click", (e) => {
-  e.preventDefault();
-  auth.signOut();
-});
+  //create book
+  //   const createForm = document.querySelector("#create-form");
+  //   createForm.addEventListener("submit", (e) => {
+  //     e.preventDefault();
 
-//   // login
-//   const loginForm = document.querySelector("#login-form");
-  $(".auth__signin").addEventListener("submit", (e) => {
+  //     db.collection("guides")
+  //       .add({
+  //         title: createForm["title"].value,
+  //         content: createForm["content"].value,
+  //       })
+  //       .then(() => {
+  //         // close modal and reset form
+
+  //         const modal = document.querySelector("#modal-create");
+  //         M.Modal.getInstance(modal).close();
+  //         createForm.reset();
+  //       })
+  //       .catch((err) => {
+  //         console.log(err.message);
+  //       });
+  //   });
+
+  // signup
+
+  // console.log("test")
+  // const signupForm = document.querySelector(".auth__form");
+  // lg($(".auth__signup"))
+  $(".auth__signup").addEventListener("submit", (e) => {
     e.preventDefault();
 
+    //   get user info
+    const email = $(".auth__signup")["new-email"].value;
+    const password = $(".auth__signup")["new-password"].value;
+    //   sign up the user
+    auth.createUserWithEmailAndPassword(email, password).then((cred) => {
+      // reset form
+      $(".auth__signup").reset();
+    });
+  });
+
+  // logout
+  // const logout = document.querySelector("#logout");
+  $(".link__signout").addEventListener("click", (e) => {
+    e.preventDefault();
+    auth.signOut();
+  });
+
+  //   // login
+  $(".auth__signin").addEventListener("submit", (e) => {
+    e.preventDefault();
     // get user info
     const email = $(".auth__signin")["email"].value;
     const password = $(".auth__signin")["password"].value;
 
     // log the user in
     auth.signInWithEmailAndPassword(email, password).then((cred) => {
-      // close the signup modal & reset form
-    //   const modal = document.querySelector("#modal-login");
-    //   M.Modal.getInstance(modal).close();
+      // hide form
+      hideForms();
+      // reset form
       $(".auth__signin").reset();
     });
   });
-
-})
+});
