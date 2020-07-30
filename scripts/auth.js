@@ -67,7 +67,7 @@ const setupBooks = (data) => {
         // Show books
         $(".auth").style.display = "none"
         gsap.timeline()
-        .to(".books", {display: "flex"})
+        .to(".books", {display: "flex", overflow: "auto"})
         .to(".book", {autoAlpha: 1, duration: 1, delay: 0.3})
 
         }),
@@ -79,6 +79,7 @@ const setupBooks = (data) => {
       signin_tl.reverse();
       // signup_tl.reverse(false)
       gsap.timeline()
+      .to(".books", {overflow:"hidden"})
       .to(".book", {autoAlpha: 0, duration: 0.3})
       .to(".books", {display:"none"})
       .to(".auth", {display:"block"})
