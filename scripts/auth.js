@@ -120,9 +120,17 @@ const setupBooks = (data) => {
     const password = $(".auth__signup")["new-password"].value;
     //   sign up the user
     auth.createUserWithEmailAndPassword(email, password).then((cred) => {
+      // return db.collection("users").doc(cred.user.uid).set({
+      //   username: $(".auth__signup")["username"].value
+      // })
       // reset form
       $(".auth__signup").reset();
     }, err => lg(err.message))
+    .then(()=>{
+      lg("reset here")
+      // $(".auth__signup").reset();
+
+    })
   });
 
   // logout
