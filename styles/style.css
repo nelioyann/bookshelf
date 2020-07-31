@@ -320,4 +320,8 @@ ul {
   font-weight: 500;
   font-size: 1.5em;
 }
+
+.books__form {
+  display: none;
+}
 /*# sourceMappingURL=style.css.map */

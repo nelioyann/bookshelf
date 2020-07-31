@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
       //toggle UI elements
       $$(".logged-in").forEach((item) => (item.style.display = "block"));
       $$(".logged-out").forEach((item) => (item.style.display = "none"));
-      lg("hide logged-out");
     } else {
       // hide account info
       //   accountDetails.innerHTML = ""
@@ -91,31 +90,28 @@ const setupBooks = (data) => {
   });
 
   //create book
-    createForm.addEventListener("submit", (e) => {
+    $(".books__form").addEventListener("submit", (e) => {
       e.preventDefault();
 
-      db.collection("guides")
+      db.collection("books")
+      // add completion
+      // add total
         .add({
-          title: createForm["title"].value,
-          content: createForm["content"].value,
+          title: $(".books__form")["title"].value,
+          content: $(".books__form")["progress"].value,
         })
         .then(() => {
-          // close modal and reset form
+          // reset form
 
-          const modal = document.querySelector("#modal-create");
-          M.Modal.getInstance(modal).close();
-          createForm.reset();
+          $(".books__form").reset();
         })
         .catch((err) => {
           console.log(err.message);
         });
     });
 
-  // signup
-
-  // console.log("test")
-  // const signupForm = document.querySelector(".auth__form");
-  // lg($(".auth__signup"))
+  
+    // signup
   $(".auth__signup").addEventListener("submit", (e) => {
     e.preventDefault();
 

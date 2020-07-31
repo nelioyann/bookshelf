@@ -160,11 +160,7 @@
 }
 
 .books{
-    // position: absolute;
-    // top: 200px;
     overflow-x: auto;
-    // margin-top: -350px;
-    // width: 340px;
     &__list{
         display: flex;
         // min-width: 250px;
@@ -185,5 +181,8 @@
                 font-size: 1.5em;
             }
         }
+    }
+    &__form{
+        display: none;
     }
 }
