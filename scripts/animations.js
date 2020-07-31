@@ -6,7 +6,7 @@ const toggleTween = tween =>{
 
 const signin_tl = gsap.timeline({paused:true, reversed: true }).to(".auth__signin", {
   x: "-100vw",
-  autoAlpha: 1,
+  autoAlpha: 0,
   ease: "back.inOut",
   duration: 1,
 });

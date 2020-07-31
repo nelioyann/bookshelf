@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     // lg("This page is working")
     // lg($("body"))
 
- 
+    gsap.to(".auth", {autoAlpha: 1, delay: 2})
 
     const switchForms = (e) =>{
         let target = (e.target.getAttribute("data-target"))

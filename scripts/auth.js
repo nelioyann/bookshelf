@@ -45,6 +45,10 @@ document.addEventListener("DOMContentLoaded", () => {
     y: 0,
     autoAlpha: 0,
   });
+  // gsap.set(".auth_signin", {
+    
+  //   autoAlpha: 0,
+  // });
 
   const showFeedback = message =>{
     if (message == "Missing or insufficient permissions."){

@@ -202,6 +202,7 @@ ul {
 .auth {
   margin-top: 50px;
   position: relative;
+  opacity: 0;
 }
 
 .auth__signup {
