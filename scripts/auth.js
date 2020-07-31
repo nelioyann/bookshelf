@@ -3,7 +3,21 @@ document.addEventListener("DOMContentLoaded", () => {
     if (user) {
       // account info
       // const html = `<div> Logged in as ${user.email}</div>`
-      $(".header__title").innerHTML = `Logged in as ${user.email}`;
+      db.collection("users").doc(user.uid).get().then(doc =>{
+        lg("fetching user doc")
+        // lg(doc)
+        // doc.collection("books").get().then(snapshot =>{
+        //   lg(snapshot)
+        // })
+        $(".header__title").innerHTML = `Logged in as ${doc.data().username}`;
+        // $(".header__title").innerHTML = `Logged in as ${user.email}`;
+      }
+      )
+      
+      // db.collection("users").doc(user.uid).collection("books").get().then(snapshot =>{
+      //   lg(snapshot.docs)
+      // })
+      
 
       //toggle UI elements
       $$(".logged-in").forEach((item) => (item.style.display = "block"));
@@ -30,7 +44,12 @@ document.addEventListener("DOMContentLoaded", () => {
 const setupBooks = (data) => {
   lg(data)
   if (data.length) {
-    let html = "";
+    let html = `
+    <li class="book">
+					<div class="book__title">+</div>
+					<div class="book__completion">Add a new book</div>
+				</li>
+        `;
     data.forEach((doc) => {
       const book = doc.data();
       const li = `
@@ -58,7 +77,7 @@ const setupBooks = (data) => {
       hideForms();
 
       // get data
-      db.collection("books")
+      db.collection("users").doc(user.uid).collection("books")
       .onSnapshot((snapshot) => {
         setupBooks(snapshot.docs);
         setupUI(user);
@@ -120,15 +139,15 @@ const setupBooks = (data) => {
     const password = $(".auth__signup")["new-password"].value;
     //   sign up the user
     auth.createUserWithEmailAndPassword(email, password).then((cred) => {
-      // return db.collection("users").doc(cred.user.uid).set({
-      //   username: $(".auth__signup")["username"].value
-      // })
+      return db.collection("users").doc(cred.user.uid).set({
+        username: $(".auth__signup")["username"].value
+      })
       // reset form
-      $(".auth__signup").reset();
+      // $(".auth__signup").reset();
     }, err => lg(err.message))
     .then(()=>{
       lg("reset here")
-      // $(".auth__signup").reset();
+      $(".auth__signup").reset();
 
     })
   });

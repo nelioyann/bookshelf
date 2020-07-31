@@ -30,20 +30,26 @@
           alt="Logo"
         />
       </div>
-      <h1 class="header__title">Firecrud</h1>
+      <h1 class="header__title"></h1>
     </header>
     <nav class="body__section navigation">
       <ul class="navigation__items">
-        <li class="navigation__items__item navigation__items__item-signin logged-out">
+        <li
+          class="navigation__items__item navigation__items__item-signin logged-out"
+        >
           <button data-target="auth__signin" class="link link-active">
             Log In
           </button>
         </li>
-        <li class="navigation__items__item navigation__items__item-signup logged-out">
+        <li
+          class="navigation__items__item navigation__items__item-signup logged-out"
+        >
           <button data-target="auth__signup" class="link">Sign Up</button>
         </li>
-        <li class="navigation__items__item navigation__items__item-signout logged-in">
-          <button class="link link__signout" >Log Out</button>
+        <li
+          class="navigation__items__item navigation__items__item-signout logged-in"
+        >
+          <button class="link link__signout">Log Out</button>
         </li>
         <!-- <li class="navigation__items__item navigation__items__item-signout logged-in">
           <button data-target="books__list" class="link link__books" >Books</button>
@@ -85,13 +91,26 @@
           Login
         </button>
       </form>
-      <form class="auth__form auth__signup">
+      <form class="auth__form auth__signup" autocomplete="off">
+        <section class="auth__section">
+          <label class="auth__section__label" for="username">Username</label
+          ><input
+            class="auth__section__input"
+            name="username"
+            id="username"
+            type="text"
+            autocomplete="off"
+            placeholder="Enter a username"
+            required
+          />
+        </section>
         <section class="auth__section">
           <label class="auth__section__label" for="new-email">Email</label
           ><input
             class="auth__section__input"
             id="new-email"
             name="new-email"
+            autocomplete="off"
             type="email"
             placeholder="Enter your email"
             required
@@ -104,23 +123,19 @@
             name="new-password"
             id="new-password"
             type="password"
+            autocomplete="off"
             placeholder="Enter your password"
             required
           />
         </section>
-        <!-- <section class="auth__section">
-          <label class="auth__section__label" for="username">Username</label
-          ><input class="auth__section__input" id="username" type="text" />
-        </section> -->
+        
         <button class="auth__form__button auth__form__button__signup">
           Create Account
         </button>
       </form>
     </main>
     <aside class="body__section books">
-      <ul class="books__list">
-
-      </ul>
+      <ul class="books__list"></ul>
 
       <form class="books__form books__add">
         <section class="books__section">
@@ -133,21 +148,33 @@
             autocomplete="title"
             placeholder="Enter the title"
             required
-            
           />
           <span class="books__section__span"></span>
         </section>
         <section class="books__section">
-          <label class="books__section__label" for="progress">Password</label
+          <label class="books__section__label" for="progress">Progression</label
           ><input
             class="books__section__input"
             id="progress"
             type="number"
-            placeholder="Enter progression"
+            inputmode="numeric"
+            placeholder="Enter current page"
             name="progress"
             required
           />
           <span class="books__section__span"></span>
+        </section>
+        <section class="books__section">
+          <label class="books__section__label" for="completed">
+            <input
+            class="books__section__input books__section__input__completed"
+            id="completed"
+            type="checkbox"
+            name="completed"
+            />
+            <div class="books__section__toggle toggle"></div> 
+            <span>Finished</span>
+          </label>
         </section>
         <button class="books__form__button">
           Add a new book
