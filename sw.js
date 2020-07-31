@@ -1,4 +1,4 @@
-const version = 8;
+const version = 1;
 const staticCacheName = `site-static-v${version}`
 const dynamicCache = `site-dynamic-v${version}`
 // Fichier qui seront cacher
@@ -7,10 +7,13 @@ const assets = [
     './index.html',
     './styles/style.css',
     './scripts/script.js',
+    './scripts/animations.js',
+    './scripts/auth.js',
+    './scripts/db.js',
     './scripts/app.js',
-    '/images/icons/icon-72x72.png',
-    '/images/icons/icon-144x144.png',
-    '/images/icons/icon-152x152.png'
+    './images/icons/icon-72x72.png',
+    './images/icons/icon-144x144.png',
+    './images/icons/icon-152x152.png'
     
     
 ]

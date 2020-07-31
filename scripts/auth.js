@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
       //   accountDetails.innerHTML = ""
       $(".header__title").innerHTML = `Log in to view your library`;
 
-      lg("hide logged-in");
+      // showFeedback("hide logged-in");
       $$(".logged-in").forEach((item) => {
         item.style.display = "none";
       });
@@ -41,6 +41,26 @@ document.addEventListener("DOMContentLoaded", () => {
     signup_tl.reverse();
   };
 
+  gsap.set(".feedback", {
+    y: 0,
+    autoAlpha: 0,
+  });
+
+  const showFeedback = message =>{
+    // let feedback = $("#feedbackMessage")
+    $(".feedback").innerHTML = message
+    gsap.timeline()
+    .to(".feedback", {y:"15vh", autoAlpha: 1, duration: 1, ease: "bounce.out"})
+    .to(".feedback", {y: 0, autoAlpha: 0, delay:4})
+    // feedback.fadeIn()
+    // $(".logo_img").toggle("fold")
+    // feedback.fadeIn().delay(1200).fadeOut()
+    // feedback.css("animation", "feedbackSlide 1s")
+    // setTimeout(() =>{ alert("Hello"); }, 3000);
+
+
+
+}
 // const showBookForm = (e) =>{
 //   gsap
 //         .timeline()
@@ -68,11 +88,11 @@ document.addEventListener("DOMContentLoaded", () => {
 			`;
         html += li;
       });
-      $(".books__list").innerHTML += html;
+      $(".books__list").innerHTML = html;
 
     } else {
       lg("no books")
-      // $(".books__list").innerHTML = `<h5 class="">You don't have any book</h5>`;
+      $(".books__list").innerHTML = `<h5 class="books__list__text">You don't have any book yet</h5>`;
     }
   };
 
@@ -108,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
           },
           (err) => {
-            console.log(err.message);
+            showFeedback(err.message);
           }
           
         );
@@ -121,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
         x: "100vw",
         autoAlpha: 0,
       });
-      console.log("user logged out");
+      // showFeedback("user logged out");
       signin_tl.reverse();
       // signup_tl.reverse(false)
       gsap
@@ -129,7 +149,8 @@ document.addEventListener("DOMContentLoaded", () => {
         .to(".books", { overflow: "hidden", duration: 0.1 })
         // .to(".book", {autoAlpha: 0, duration: 0.3})
         .to(".books", { display: "none", duration: 0.1 })
-        .to(".auth", { display: "block", duration: 0.1 });
+        .to(".auth", { display: "block", duration: 0.1 })
+        .to(".auth__signin", { autoAlpha: 1, duration: 0.3 });
       // $(".auth").style.display = "block"
       setupUI();
       // setupGuides([]);
@@ -196,7 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // reset form
           // $(".auth__signup").reset();
         },
-        (err) => lg(err.message)
+        (err) => showFeedback(err.message)
       )
       .then(() => {
         lg("reset here");
@@ -227,6 +248,6 @@ document.addEventListener("DOMContentLoaded", () => {
         // reset form
         $(".auth__signin").reset();
       })
-      .catch((err) => lg(err.message));
+      .catch((err) => showFeedback(err.message));
   });
 });

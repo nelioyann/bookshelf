@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     // lg("This page is working")
     // lg($("body"))
 
-    
+ 
 
     const switchForms = (e) =>{
         let target = (e.target.getAttribute("data-target"))
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         //    toggleTween(signup_tl)
            lg(signin_tl.reversed())
            lg(signup_tl.reversed())
-        } else{
+        } else if(target = "auth__signin"){
             signin_tl.reverse()
             signup_tl.reverse()
             lg(signin_tl.reversed())

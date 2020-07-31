@@ -92,7 +92,7 @@
     opacity: 0;
   }
   &__signin {
-    opacity: 0;
+    opacity: 1;
   }
   &__form {
     width: 100%;
@@ -162,11 +162,16 @@
 }
 
 .books {
+  margin-top: 50px;
+
   overflow-x: auto;
   &__list {
     display: flex;
     // min-width: 250px;
     width: fit-content;
+    &__text{
+        margin: auto;
+    }
     .book {
       display: flex;
       flex-direction: column;

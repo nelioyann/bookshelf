@@ -1,6 +1,6 @@
 {
-    "name": "Firecrud",
-    "short_name": "Firecrud",
+    "name": "BookShelf",
+    "short_name": "BookShelf",
     "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#585a79",

@@ -76,6 +76,24 @@ ul {
   list-style-type: none;
 }
 
+.feedback {
+  position: absolute;
+  top: -10vh;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background-color: #f0f0f0;
+  color: #000000;
+  line-height: 2;
+  min-width: 200px;
+  margin: auto;
+  padding: 5px;
+  border-radius: 2px;
+  width: 90%;
+  opacity: 0;
+  z-index: 3;
+}
+
 .body__section {
   margin: auto;
 }
@@ -193,7 +211,7 @@ ul {
 }
 
 .auth__signin {
-  opacity: 0;
+  opacity: 1;
 }
 
 .auth__form {
@@ -293,6 +311,7 @@ ul {
 }
 
 .books {
+  margin-top: 50px;
   overflow-x: auto;
 }
 
@@ -303,6 +322,10 @@ ul {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+}
+
+.books__list__text {
+  margin: auto;
 }
 
 .books__list .book {
