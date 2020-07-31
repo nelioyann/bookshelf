@@ -67,23 +67,23 @@ const setupBooks = (data) => {
         // Show books
         $(".auth").style.display = "none"
         gsap.timeline()
-        .to(".books", {display: "flex"})
+        .to(".books", {display: "block"})
         .to(".book", {autoAlpha: 1, duration: 1, delay: 0.3})
         .to(".books", {overflow: "auto"})
 
-        }),
-        ((err) => {
+        },
+        err => {
           console.log(err.message);
-        });
+        })
     } else {
       console.log("user logged out");
       signin_tl.reverse();
       // signup_tl.reverse(false)
       gsap.timeline()
-      .to(".books", {overflow:"hidden"})
-      .to(".book", {autoAlpha: 0, duration: 0.3})
-      .to(".books", {display:"none"})
-      .to(".auth", {display:"block"})
+      .to(".books", {overflow:"hidden", duration: 0.1})
+      // .to(".book", {autoAlpha: 0, duration: 0.3})
+      .to(".books", {display:"none", duration: 0.1})
+      .to(".auth", {display:"block", duration: 0.1})
       // $(".auth").style.display = "block"
       setupUI();
       // setupGuides([]);
@@ -91,26 +91,25 @@ const setupBooks = (data) => {
   });
 
   //create book
-  //   const createForm = document.querySelector("#create-form");
-  //   createForm.addEventListener("submit", (e) => {
-  //     e.preventDefault();
+    createForm.addEventListener("submit", (e) => {
+      e.preventDefault();
 
-  //     db.collection("guides")
-  //       .add({
-  //         title: createForm["title"].value,
-  //         content: createForm["content"].value,
-  //       })
-  //       .then(() => {
-  //         // close modal and reset form
+      db.collection("guides")
+        .add({
+          title: createForm["title"].value,
+          content: createForm["content"].value,
+        })
+        .then(() => {
+          // close modal and reset form
 
-  //         const modal = document.querySelector("#modal-create");
-  //         M.Modal.getInstance(modal).close();
-  //         createForm.reset();
-  //       })
-  //       .catch((err) => {
-  //         console.log(err.message);
-  //       });
-  //   });
+          const modal = document.querySelector("#modal-create");
+          M.Modal.getInstance(modal).close();
+          createForm.reset();
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    });
 
   // signup
 
@@ -127,7 +126,7 @@ const setupBooks = (data) => {
     auth.createUserWithEmailAndPassword(email, password).then((cred) => {
       // reset form
       $(".auth__signup").reset();
-    });
+    }, err => lg(err.message))
   });
 
   // logout
@@ -150,6 +149,6 @@ const setupBooks = (data) => {
       hideForms();
       // reset form
       $(".auth__signin").reset();
-    });
+    }).catch(err => lg(err.message))
   });
 });
