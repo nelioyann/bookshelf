@@ -49,9 +49,9 @@
     list-style-type: none;
     &__item {
       display: none;
-      &-signout {
-        display: block;
-      }
+    //   &-signout {
+    //     display: block;
+    //   }
       .link {
         background-color: transparent;
         color: $color_light;
@@ -89,6 +89,7 @@
   &__signup {
     position: absolute;
     top: 0;
+    opacity: 0;
   }
   &__signin {
     opacity: 0;
@@ -163,7 +164,7 @@
 .books {
   overflow-x: auto;
   &__list {
-    display: none;
+    display: flex;
     // min-width: 250px;
     width: fit-content;
     .book {
@@ -190,6 +191,7 @@
   }
   &__form {
     width: 100%;
+    display: none;
     .books__section {
       display: flex;
       flex-direction: column;

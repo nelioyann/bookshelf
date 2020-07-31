@@ -154,10 +154,6 @@ ul {
   display: none;
 }
 
-.navigation__items__item-signout {
-  display: block;
-}
-
 .navigation__items__item .link {
   background-color: transparent;
   color: #f0f0f0;
@@ -193,6 +189,7 @@ ul {
 .auth__signup {
   position: absolute;
   top: 0;
+  opacity: 0;
 }
 
 .auth__signin {
@@ -300,7 +297,9 @@ ul {
 }
 
 .books__list {
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -337,6 +336,7 @@ ul {
 
 .books__form {
   width: 100%;
+  display: none;
 }
 
 .books__form .books__section {
