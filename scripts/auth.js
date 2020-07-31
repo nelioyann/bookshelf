@@ -47,6 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const showFeedback = message =>{
+    if (message == "Missing or insufficient permissions."){
+      return null
+    }
     // let feedback = $("#feedbackMessage")
     $(".feedback").innerHTML = message
     gsap.timeline()
@@ -159,9 +162,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //create book
   $(".link__add").addEventListener("click", ()=>{
+    // lg("show form")
+    // lg(showBooks_tl.reversed())
     showBooks_tl.play()
+    // tween.reversed() ? tween.play() : tween.reversed()
   })
   $(".link__books").addEventListener("click", ()=>{
+    // lg(showBooks_tl.reversed())
     showBooks_tl.reverse()
   })
 
@@ -183,12 +190,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         $(".books__form").reset();
         // $(".auth").style.display = "none";
-        gsap
-          .timeline()
-          .to(".books__form", { autoAlpha: 0, duration: 0.3 })
-          .to(".books__form", { display: "none" })
-          .to(".books__list", { display: "flex", duration: 1, delay: 0.3 })
-          .to(".books__list", { autoAlpha: 1, duration: 1 })
+        showBooks_tl.reverse()
+        // gsap
+        //   .timeline()
+        //   .to(".books__form", { autoAlpha: 0, duration: 0.3 })
+        //   .to(".books__form", { display: "none" })
+        //   .to(".books__list", { display: "flex", duration: 1, delay: 0.3 })
+        //   .to(".books__list", { autoAlpha: 1, duration: 1 })
           // .to(".books", { overflow: "auto" });
       })
       .catch((err) => {

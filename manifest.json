@@ -3,8 +3,8 @@
     "short_name": "BookShelf",
     "start_url": "/index.html",
     "display": "standalone",
-    "background_color": "#585a79",
-    "theme_color": "#585a79",
+    "background_color": "#000000",
+    "theme_color": "#000000",
     "orientation": "portrait-primary",
     "icons": [
         {
