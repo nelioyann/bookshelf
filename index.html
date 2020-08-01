@@ -32,7 +32,7 @@
   <nav class="body__section navigation">
     <ul class="navigation__items">
       <li class="navigation__items__item navigation__items__item-signin logged-out">
-        <button data-target="auth__signin" class="link link-active">
+        <button data-target="auth__signin" class="link link__signin link-active">
           Log In
         </button>
       </li>
@@ -43,11 +43,11 @@
         <button class="link link__signout">Log Out</button>
       </li>
       <li class="navigation__items__item navigation__items__item-books logged-in">
-        <button data-target="books__list" class="link link__books">Books</button>
+        <button data-target="books__list" class="link link__books">My books</button>
       </li>
 
       <li class="navigation__items__item navigation__items__item-add logged-in">
-        <button data-target="books__add" class="link link__add">Add Book</button>
+        <button data-target="books__add" class="link link__add">Add a new book</button>
       </li>
     </ul>
   </nav>
@@ -102,12 +102,12 @@
     <form class="books__form books__add">
       <section class="books__section">
         <label class="books__section__label" for="title">Title</label><input class="books__section__input" id="title"
-          name="title" type="text" autocomplete="title" placeholder="Enter the title" required />
+          name="title" type="text" autocomplete="off" placeholder="Enter the title" required />
         <span class="books__section__span"></span>
       </section>
       <section class="books__section">
         <label class="books__section__label" for="progress">Progression</label><input class="books__section__input"
-          id="progress" type="number" inputmode="numeric" placeholder="Enter current page" name="progress" required />
+          id="progress" type="number" inputmode="numeric" value="0" placeholder="Enter current page" name="progress" required />
         <span class="books__section__span"></span>
       </section>
       <section class="books__section">
@@ -168,7 +168,7 @@
   <script src="./scripts/animations.js"></script>
   <script src="./scripts/script.js"></script>
   <script src="./scripts/auth.js"></script>
-  <!-- <script src="./scripts/app.js"></script> -->
+  <script src="./scripts/app.js"></script>
 </body>
 
 </html>

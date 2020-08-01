@@ -20,17 +20,24 @@ document.addEventListener("DOMContentLoaded", ()=>{
         }
 
     }
+
+    // I am deeply ashamed about the following lines of code
     $(".navigation__items__item-signup").addEventListener("click", switchForms)
     $(".navigation__items__item-signin").addEventListener("click", switchForms)
+    $(".navigation__items__item-books").addEventListener("click", switchForms)
+    $(".navigation__items__item-add").addEventListener("click", switchForms)
     
     
-    $(".auth__form__button").addEventListener("click", (e)=>{
-      gsap.timeline()
-      .to(e.target, {opacity: 0.5, duration: 0.3})
-      .to(e.target, {opacity: 1, duration: 0.3, delay: 2})
+    $$(".form__button").forEach(element => {
       
-      lg(e.target)
-    })
+      element.addEventListener("click", (e)=>{
+        gsap.timeline()
+        .to(e.target, {opacity: 0.5, duration: 0.3})
+        .to(e.target, {opacity: 1, duration: 0.3, delay: 2})
+        
+        lg(e.target)
+      })
+    });
 
 
 

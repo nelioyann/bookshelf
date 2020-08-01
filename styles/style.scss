@@ -69,6 +69,7 @@
           &:after {
             content: "";
             position: absolute;
+            transition: 300ms;
             bottom: -10px;
             left: 0;
             height: 3px;
@@ -169,8 +170,8 @@
   overflow-x: auto;
   &__list {
     display: flex;
-    // min-width: 250px;
     width: fit-content;
+    margin: 1em auto;
     &__text{
         margin: auto;
     }
@@ -193,6 +194,10 @@
       &__title {
         font-weight: $font_bold;
         font-size: 1.5em;
+      }
+      &__completion {
+        font-weight: $font_bold;
+        font-size: 0.8em;
       }
     }
   }

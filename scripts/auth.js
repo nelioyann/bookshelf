@@ -35,10 +35,15 @@ document.addEventListener("DOMContentLoaded", () => {
       $(".header__title").innerHTML = `Log in to view your library`;
 
       // showFeedback("hide logged-in");
-      $$(".logged-in").forEach((item) => {
-        item.style.display = "none";
-      });
-      $$(".logged-out").forEach((item) => (item.style.display = "block"));
+      gsap.timeline()
+      .to(".logged-in", {autoAlpha: 0, duration: 0.3})
+      .to(".logged-in", {display: "none", duration: 0.1})
+      .to(".logged-out", {display: "block", duration: 0.1})
+      .to(".logged-out", {autoAlpha: 1, duration: 0.3})
+      // $$(".logged-in").forEach((item) => {
+      //   item.style.display = "none";
+      // });
+      // $$(".logged-out").forEach((item) => (item.style.display = "block"));
     }
   };
 
@@ -119,6 +124,11 @@ document.addEventListener("DOMContentLoaded", () => {
       // Hide forms
       hideForms();
 
+      // update navigation active link
+      $(".link-active").classList.remove("link-active")
+      $(".link__books").classList.add("link-active")
+
+      
       // get data
       db.collection("users")
         .doc(user.uid)
@@ -136,16 +146,24 @@ document.addEventListener("DOMContentLoaded", () => {
             gsap
               .timeline()
               .to(".books", { display: "block" })
-              .to(".book", { autoAlpha: 1, duration: 1, delay: 0.3 })
-              .to(".books", { overflow: "auto" });
+              .to(".books", { overflow: "auto", duration: 1 })
+              .to(".book", { autoAlpha: 1, duration: 1, stagger: {each:0.3} })
             
           },
           (err) => {
             showFeedback(err.message);
           }
           
-        );
+        )
+      lg(`show books tl ${showBooks_tl.reversed()}`)
+
     } else {
+      // Logged out
+
+      // update navigation active link
+      $(".link-active").classList.remove("link-active")
+      $(".link__signin").classList.add("link-active")
+
       gsap.set(".auth__signin", {
         x: 0,
         autoAlpha: 1,
@@ -156,6 +174,9 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       // showFeedback("user logged out");
       signin_tl.reverse();
+
+      lg(`show books tl ${showBooks_tl.reversed()}`)
+      
       // signup_tl.reverse(false)
       gsap
         .timeline()
@@ -166,6 +187,9 @@ document.addEventListener("DOMContentLoaded", () => {
         .to(".auth__signin", { autoAlpha: 1, duration: 0.3 });
       // $(".auth").style.display = "block"
       setupUI();
+      if (!showBooks_tl.reversed()){
+        showBooks_tl.reverse()
+      }
       // setupGuides([]);
     }
   });
@@ -178,6 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // tween.reversed() ? tween.play() : tween.reversed()
   })
   $(".link__books").addEventListener("click", ()=>{
+    lg(showBooks_tl.reversed())
     // lg(showBooks_tl.reversed())
     showBooks_tl.reverse()
   })
@@ -202,6 +227,12 @@ document.addEventListener("DOMContentLoaded", () => {
         // $(".auth").style.display = "none";
         showBooks_tl.reverse()
         showFeedback("New book added! ")
+
+        // update navigation active link
+      $(".link-active").classList.remove("link-active")
+      $(".link__books").classList.add("link-active")
+
+
         // gsap
         //   .timeline()
         //   .to(".books__form", { autoAlpha: 0, duration: 0.3 })

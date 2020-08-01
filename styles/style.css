@@ -191,6 +191,8 @@ ul {
 .navigation__items__item .link-active:after {
   content: "";
   position: absolute;
+  -webkit-transition: 300ms;
+  transition: 300ms;
   bottom: -10px;
   left: 0;
   height: 3px;
@@ -324,6 +326,7 @@ ul {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  margin: 1em auto;
 }
 
 .books__list__text {
@@ -357,6 +360,11 @@ ul {
 .books__list .book__title {
   font-weight: 500;
   font-size: 1.5em;
+}
+
+.books__list .book__completion {
+  font-weight: 500;
+  font-size: 0.8em;
 }
 
 .books__form {
