@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // doc.collection("books").get().then(snapshot =>{
           //   lg(snapshot)
           // })
-          $(".header__title").innerHTML = `Logged in as ${doc.data().username}`;
+          $(".header__title").innerHTML = `Hello, ${doc.data().username}`;
           // $(".header__title").innerHTML = `Logged in as ${user.email}`;
         });
 
@@ -70,26 +70,11 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.timeline()
     .to(".feedback", {y:"15vh", autoAlpha: 1, duration: 1, ease: "bounce.out"})
     .to(".feedback", {y: 0, autoAlpha: 0, delay:4})
-    // feedback.fadeIn()
-    // $(".logo_img").toggle("fold")
-    // feedback.fadeIn().delay(1200).fadeOut()
-    // feedback.css("animation", "feedbackSlide 1s")
-    // setTimeout(() =>{ alert("Hello"); }, 3000);
-
+   
 
 
 }
-// const showBookForm = (e) =>{
-//   gsap
-//         .timeline()
-//         .to(".books__list", { autoAlpha: 0, duration: 0.3 })
-//         .to(".books__list", { display: "none", duration: 0.3 })
-//         .to(".books__form", {autoAlpha: 0, duration: 0.1})
-//         .to(".books__form", { display: "block", duration: 0.1 })
-//         .to(".books__form", {autoAlpha: 1, duration: 0.3})
-//         // .to(".auth", { display: "block", duration: 0.1 });
 
-// }
   const setupBooks = (data) => {
     lg(data);
     if (data.length) {
