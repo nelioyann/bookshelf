@@ -21,8 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
       // })
 
       //toggle UI elements
-      $$(".logged-in").forEach((item) => (item.style.display = "block"));
-      $$(".logged-out").forEach((item) => (item.style.display = "none"));
+
+      gsap.timeline()
+      .to(".logged-out", {autoAlpha: 0, duration: 0.3})
+      .to(".logged-out", {display: "none", duration: 0.1})
+      .to(".logged-in", {display: "block", duration: 0.1})
+      .to(".logged-in", {autoAlpha: 1, duration: 0.3})
+      // $$(".logged-out").forEach((item) => (item.style.display = "none"));
+      // $$(".logged-in").forEach((item) => (item.style.display = "block"));
     } else {
       // hide account info
       //   accountDetails.innerHTML = ""
@@ -195,6 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
         $(".books__form").reset();
         // $(".auth").style.display = "none";
         showBooks_tl.reverse()
+        showFeedback("New book added! ")
         // gsap
         //   .timeline()
         //   .to(".books__form", { autoAlpha: 0, duration: 0.3 })
@@ -224,16 +231,19 @@ document.addEventListener("DOMContentLoaded", () => {
             .collection("users")
             .doc(cred.user.uid)
             .set({
-              username: $(".auth__signup")["username"].value,
+              username: $(".auth__signup")["newUsername"].value,
             });
           // reset form
           // $(".auth__signup").reset();
         },
-        (err) => showFeedback(err.message)
+        (err) => {
+          showFeedback(err.message)
+          return null
+        }
       )
       .then(() => {
         lg("reset here");
-        $(".auth__signup").reset();
+        // $(".auth__signup").reset();
       });
   });
 

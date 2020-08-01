@@ -46,7 +46,12 @@ self.addEventListener('activate', event=>{
 
 // fetch event fires evrytime the brwer seeek an asset
 self.addEventListener('fetch',(event)=>{
-    // console.log('fetch event', event)
+    // console.log('fetch event', event.request.url.indexOf('chrome-extension'))
+
+    // Temporary hack
+    if(event.request.url.indexOf('chrome-extension') != -1){
+        return null
+    }
     // Pause the request and 
     if(event.request.url.indexOf('firestore.googleapis.com') === -1){
     event.respondWith(
@@ -58,9 +63,11 @@ self.addEventListener('fetch',(event)=>{
                     return fetchResponse;
                 })
             });
-        }).catch(()=> {
+        }).catch((err)=> {
             if(event.request.url.indexOf('.html') > -1){
                 return caches.match('/index.html');
+            } else{
+                console.log(err)
             }
         })
     )}
