@@ -101,7 +101,6 @@ ul {
 /* Track */
 ::-webkit-scrollbar-track {
   background: #000000;
-  border: 1px dotted #f0f0f0;
   border-radius: 5px;
 }
 
