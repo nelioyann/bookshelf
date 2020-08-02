@@ -94,6 +94,28 @@ ul {
   z-index: 3;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #000000;
+  border: 1px dotted #f0f0f0;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #f0f0f0;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #f0f0f0;
+}
+
 .body__section {
   margin: auto;
 }
@@ -345,9 +367,9 @@ ul {
   width: -moz-fit-content;
   width: fit-content;
   margin: 1em auto;
-  -webkit-perspective: 1500px;
-          perspective: 1500px;
-  padding: 0.5em 0;
+  -webkit-perspective: 2000px;
+          perspective: 2000px;
+  padding: 0.5em;
 }
 
 .books__list__text {
@@ -362,11 +384,8 @@ ul {
           transform-style: preserve-3d;
   background-color: #000000;
   margin: 5px;
-  padding: 0.5em;
   opacity: 0;
   position: relative;
-  -webkit-transform: rotateX(25deg);
-          transform: rotateX(25deg);
   -webkit-transition: -webkit-transform 900ms;
   transition: -webkit-transform 900ms;
   transition: transform 900ms;
@@ -405,6 +424,7 @@ ul {
 
 .books__list .book > .front {
   border: 1px solid #f0f0f0;
+  padding: 0.5em;
   position: absolute;
   top: 0;
   left: 0;
@@ -425,6 +445,7 @@ ul {
 .books__list .book > .back {
   border: 1px solid #f0f0f0;
   position: absolute;
+  padding: 0.5em;
   top: 0;
   left: 0;
   display: -webkit-box;
@@ -447,8 +468,8 @@ ul {
 }
 
 .books__list .book.flipped {
-  -webkit-transform: rotateX(25deg) rotateY(180deg);
-          transform: rotateX(25deg) rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
 }
 
 .books__list .book__new__title {
@@ -457,10 +478,15 @@ ul {
 
 .books__list .book__title {
   font-weight: 500;
-  font-size: 1.3em;
+  font-size: 1em;
 }
 
 .books__list .book__completion {
+  font-weight: 500;
+  font-size: 0.8em;
+}
+
+.books__list .book__progress {
   font-weight: 500;
   font-size: 0.8em;
 }
