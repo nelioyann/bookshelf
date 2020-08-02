@@ -1,4 +1,4 @@
-const version = 2;
+const version = 3;
 const staticCacheName = `site-static-v${version}`
 // const dynamicCache = `site-dynamic-v${version}`
 // Fichier qui seront cacher
