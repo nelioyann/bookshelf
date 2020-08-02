@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
       $$(".book").forEach(book =>{
         book.addEventListener("click", (e)=>{
           e.currentTarget.classList.toggle("flipped")
-          lg(e.currentTarget)
+          // lg(e.currentTarget)
         })
       })
     } else {
