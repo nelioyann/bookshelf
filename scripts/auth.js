@@ -84,15 +84,27 @@ document.addEventListener("DOMContentLoaded", () => {
       data.forEach((doc) => {
         const book = doc.data();
         const li = `
-				<li class="book">
-					<div class="book__title">${book.title}</div>
-					<div class="book__completion">${book.completed ? "finished" : "ongoing"}</div>
+        <li class="book">
+          <div class="front">
+            <div class="book__title">${book.title}</div>
+            <div class="book__completion">${book.completed ? "finished" : "ongoing"}</div>
+            </div>
+            <div class="back">
+              <div class="book__progress">Currently at page ${book.progress}</div>
+
+          </div>
 				</li>
 			`;
         html += li;
       });
       $(".books__list").innerHTML = html;
 
+      $$(".book").forEach(book =>{
+        book.addEventListener("click", (e)=>{
+          e.currentTarget.classList.toggle("flipped")
+          lg(e.currentTarget)
+        })
+      })
     } else {
       lg("no books")
       $(".books__list").innerHTML = `<h5 class="books__list__text">You don't have any book yet</h5>`;

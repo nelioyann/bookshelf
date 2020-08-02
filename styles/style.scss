@@ -30,7 +30,7 @@
     &__image {
       width: 100%;
     }
-    &__text{
+    &__text {
       font-size: 0.7em;
       letter-spacing: 2px;
     }
@@ -60,7 +60,7 @@
         top: 90vh;
         display: block;
         font-size: 0.8em;
-        .link{
+        .link {
           opacity: 1;
         }
       }
@@ -178,26 +178,91 @@
 
 .books {
   margin-top: 50px;
-
   overflow-x: auto;
   &__list {
     display: flex;
     width: fit-content;
     margin: 1em auto;
-    &__text{
-        margin: auto;
+    perspective: 1500px;
+    padding: 0.5em 0;
+
+    &__text {
+      margin: auto;
     }
     .book {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
       width: 200px;
       height: 300px;
-      border: 1px solid $color_light;
-      border-radius: 5px;
+      // border: 1px solid $color_light;
+      // border-radius: 5px;
+      cursor: pointer;
+      transform-style: preserve-3d;
+      background-color: $color_dark;
       margin: 5px;
       padding: 0.5em;
       opacity: 0;
+      position: relative;
+      transform: rotateX(25deg);
+      transition: transform 900ms;
+      
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 20px;
+        top: 100%;
+        left: 0;
+        border: 1px solid $color_light;
+        background-color: $color_dark;
+
+        // background-color: $color_light;
+        transform-origin: top;
+        transform: rotateX(-90deg);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border: 1px solid $color_light;
+        background-color: $color_dark;
+
+        // background-color: $color_light;
+        transform-origin: left;
+        transform: rotateY(90deg);
+        // transform: rotateX(45deg);
+      }
+      > .front {
+        border: 1px solid $color_light;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        width: 100%;
+      }
+      > .back {
+        border: 1px solid $color_light;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        width: 100%;
+        background-color: $color_dark;
+        backface-visibility: hidden;
+        transform: translateZ(-20px) rotateY(180deg);
+      }
+      &.flipped {
+        transform: rotateX(25deg) rotateY(180deg);
+
+      }
       &__new {
         &__title {
           color: red;
@@ -205,7 +270,7 @@
       }
       &__title {
         font-weight: $font_bold;
-        font-size: 1.5em;
+        font-size: 1.3em;
       }
       &__completion {
         font-weight: $font_bold;
@@ -243,8 +308,8 @@
         margin: 5px 0 0;
         &__completed {
           display: none;
-          &:checked ~ .toggle{
-              background-color: $color_light;
+          &:checked ~ .toggle {
+            background-color: $color_light;
           }
         }
         &[type="text"]:not(:placeholder-shown):invalid {
