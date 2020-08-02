@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
       data.forEach((doc) => {
         const book = doc.data();
         const li = `
-        <li class="book">
+        <div class="book">
           <div class="front">
             <div class="book__title">${book.title}</div>
             <div class="book__completion">${book.completed ? "finished" : "ongoing"}</div>
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <div class="book__progress">Currently at page ${book.progress}</div>
 
           </div>
-				</li>
+				</div>
 			`;
         html += li;
       });
