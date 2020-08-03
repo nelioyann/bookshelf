@@ -1,4 +1,4 @@
-const version = 5;
+const version = 999;
 const staticCacheName = `site-static-v${version}`
 const dynamicCache = `site-dynamic-v${version}`
 // Fichier qui seront cacher
@@ -9,11 +9,16 @@ const assets = [
     './scripts/script.js',
     './scripts/animations.js',
     './scripts/auth.js',
-    './scripts/db.js',
     './scripts/app.js',
     './images/icons/icon-72x72.png',
     './images/icons/icon-144x144.png',
-    './images/icons/icon-152x152.png'
+    './images/icons/icon-152x152.png',
+    "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js",
+    "https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js",
+    "https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js",
+    "https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js",
+    "https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500&display=swap",
+
     
     
 ]
@@ -39,50 +44,6 @@ self.addEventListener('install', (event)=>{
     );
     // console.log('service worker has been installed');
 });
-
-
-
-// self.addEventListener("activate", event =>{
-//     event.waitUntil(
-//         caches.keys().then(keys =>{
-//             console.log(`Keys ${keys}`);
-//             return Promise.all(keys
-//             // Extract the keyname different than the cirrent keynameversion
-//             .filter(key => key !== staticCacheName)
-//             // Get the diffkey and delete it from our cache
-//             .map(key => caches.delete(key))
-//             )
-//         })
-//     );
-//     self.clients.claim();
-// });
-
-// self.addEventListener("fetch", (event)=>{
-//     event.respondWith(
-//         caches.match(event.request)
-//         .then(response =>{
-//             if (response){
-//                 return response;
-//             }
-//             else{
-//                 return fetch(event.request)
-//             }
-//         })
-//     )
-// })
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // ----------------------- Issue continuous caching 
@@ -118,7 +79,7 @@ self.addEventListener('fetch',(event)=>{
             return cacheResponse || fetch(event.request).then(fetchResponse =>{
                 return caches.open(dynamicCache).then(cache =>{
                     cache.put(event.request.url, fetchResponse.clone());
-                    limitCacheSize(dynamicCacheName, 15);
+                    limitCacheSize(dynamicCacheName, 50);
                     return fetchResponse;
                 })
             });
