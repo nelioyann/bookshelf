@@ -1,4 +1,4 @@
-const version = 59;
+const version = 60;
 const staticCacheName = `site-static-v${version}`
 const dynamicCache = `site-dynamic-v${version}`
 // Fichier qui seront cacher
@@ -45,6 +45,7 @@ self.addEventListener('install', (event)=>{
         })
     );
     // console.log('service worker has been installed');
+    self.skipWaiting();
 });
 
 
@@ -63,6 +64,7 @@ self.addEventListener('activate', event=>{
             )
         })
     );
+    self.clients.claim();
 });
 
 // fetch event fires evrytime the brwer seeek an asset
