@@ -1,4 +1,4 @@
-const version = 999;
+const version = 59;
 const staticCacheName = `site-static-v${version}`
 const dynamicCache = `site-dynamic-v${version}`
 // Fichier qui seront cacher
@@ -6,10 +6,12 @@ const assets = [
     '/',
     './index.html',
     './styles/style.css',
+    './styles/style.css.map',
     './scripts/script.js',
     './scripts/animations.js',
     './scripts/auth.js',
     './scripts/app.js',
+    './images/logo.png',
     './images/icons/icon-72x72.png',
     './images/icons/icon-144x144.png',
     './images/icons/icon-152x152.png',
