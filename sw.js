@@ -1,4 +1,4 @@
-const version = 60;
+const version = 61;
 const staticCacheName = `site-static-v${version}`
 const dynamicCache = `site-dynamic-v${version}`
 // Fichier qui seront cacher
@@ -16,9 +16,7 @@ const assets = [
     './images/icons/icon-144x144.png',
     './images/icons/icon-152x152.png',
     "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js",
-    "https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js",
-    "https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js",
-    "https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js",
+  
     "https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500&display=swap",
 
     
