@@ -3,7 +3,7 @@
   font-size: 16px;
 }
 
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 370px) {
   :root {
     font-size: 16px;
   }
@@ -98,7 +98,7 @@ ul {
   margin: auto;
 }
 
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 370px) {
   .body__section {
     max-width: 768px;
   }
@@ -158,7 +158,7 @@ ul {
   padding: 25px 0;
 }
 
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 370px) {
   .navigation {
     padding: 0;
   }
@@ -251,7 +251,7 @@ ul {
   margin: 0 0 50px 0;
 }
 
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 370px) {
   .auth__form .auth__section {
     margin: 0 0 25px 0;
   }
@@ -333,8 +333,13 @@ ul {
 }
 
 .books {
-  margin-top: 50px;
   overflow-x: auto;
+}
+
+@media screen and (min-width: 370px) {
+  .books {
+    margin-top: 50px;
+  }
 }
 
 .books__list {
@@ -371,7 +376,7 @@ ul {
   transition: transform 900ms, -webkit-transform 900ms;
 }
 
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 370px) {
   .books__list .book {
     width: 200px;
     height: 300px;
@@ -486,9 +491,9 @@ ul {
 }
 
 .books__list .book .back__section__toggle {
-  width: 1em;
-  height: 1em;
-  border-radius: 3px;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 2px;
   border: 1px solid #f0f0f0;
   margin-right: 5px;
   display: inline-block;
@@ -502,6 +507,7 @@ ul {
   width: 100%;
   border-radius: 0 0 5px 5px;
   background-color: rgba(240, 240, 240, 0.3);
+  font-weight: 100;
 }
 
 .books__list .book.flipped {
@@ -541,9 +547,9 @@ ul {
   background-color: #f0f0f0;
   color: #000000;
   display: block;
-  width: 2em;
+  width: 1.5em;
+  height: 1.5em;
   border-radius: 5px;
-  height: 2em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -591,7 +597,7 @@ ul {
   margin: 0 0 50px 0;
 }
 
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 370px) {
   .books__form .books__section {
     margin: 0 0 25px 0;
   }

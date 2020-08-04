@@ -156,9 +156,14 @@ document.addEventListener("DOMContentLoaded", () => {
           lg(e.currentTarget)
         })
       })
-        $(".book__progress__value").addEventListener("click", e=>{
-          e.stopPropagation()
-          lg(e.currentTarget)
+        
+
+        $$(".book__progress__value").forEach(value =>{
+          value.addEventListener("click", e=>{
+            e.preventDefault()
+            e.stopPropagation()
+            lg(e.currentTarget)
+          })
         })
         $$(".book__save").forEach(button =>{
           button.addEventListener("click", e=>{

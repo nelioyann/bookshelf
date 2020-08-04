@@ -199,8 +199,11 @@
 }
 
 .books {
-  margin-top: 50px;
   overflow-x: auto;
+  @include breakpoint-up($size_mobile){
+  margin-top: 50px;
+
+  }
   &__list {
     display: flex;
     width: fit-content;
@@ -312,9 +315,9 @@
             }
           }
           &__toggle {
-            width: 1em;
-            height: 1em;
-            border-radius: 3px;
+            width: 0.5em;
+            height: 0.5em;
+            border-radius: 2px;
             border: 1px solid $color_light;
             margin-right: 5px;
             display: inline-block;
@@ -330,6 +333,7 @@
             width: 100%;
             border-radius: 0 0 5px 5px;
             background-color: rgba($color_light, 0.3);
+            font-weight: $font_light;
           }
         }
       }
@@ -359,9 +363,9 @@
           background-color: $color_light;
           color: $color_dark;
           display: block;
-          width: 2em;
+          width: 1.5em;
+          height: 1.5em;
           border-radius: 5px;
-          height: 2em;
           display: flex;
           justify-content: center;
           align-items: center;
