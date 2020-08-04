@@ -83,6 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
       data.forEach((doc) => {
         const book = doc.data();
+        // lg(doc)
         const li = `
         <div class="book">
           <div class="front">
@@ -90,15 +91,35 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="book__completion">${book.completed ? "finished" : "ongoing"}</div>
             </div>
             <form class="back">
-              <h5>Current page</h5>
-              <div class="book__progress">
+              <section class="book__progress back__section">
                 <span class="book__progress__button">-</span>
-                <input class="book__progress__value" value=${book.progress}></input>
+                <input class="book__progress__value" type="number" name="progress" value=${book.progress}></input>
                 <span class="book__progress__button">+</span>
-              </div>
-              <div class="book__save">
+              </section>
+
+              <section class="back__section">
+                <label class="back__section__label">
+                  <input class="back__section__input back__section__input__finished" type="checkbox"
+                    name="finished" ${book.completed ? "checked" : ""}/>
+                  <div class="back__section__toggle toggle"></div>
+                  <span>Finished</span>
+                </label>
+              </section>
+
+              <section class="back__section">
+                <label class="back__section__label" >
+                  <input class="back__section__input back__section__input__remove" type="checkbox"
+                    name="remove" />
+                  <div class="back__section__toggle toggle"></div>
+                  <span>Remove</span>
+                </label>
+              </section>
+
+
+
+              <button class="book__save">
                 Save Changes 
-              </div>
+              </button>
 
 
           </form>
@@ -135,6 +156,17 @@ document.addEventListener("DOMContentLoaded", () => {
           lg(e.currentTarget)
         })
       })
+        $(".book__progress__value").addEventListener("click", e=>{
+          e.stopPropagation()
+          lg(e.currentTarget)
+        })
+        $$(".book__save").forEach(button =>{
+          button.addEventListener("click", e=>{
+            e.preventDefault()
+            e.stopPropagation()
+            lg(e.currentTarget)
+          })
+        })
     } else {
       lg("no books")
       $(".books__list").innerHTML = `<h5 class="books__list__text">You don't have any book yet</h5>`;

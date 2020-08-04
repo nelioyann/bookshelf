@@ -355,8 +355,9 @@ ul {
 }
 
 .books__list .book {
-  width: 200px;
-  height: 300px;
+  width: 150px;
+  height: 250px;
+  border-radius: 2px;
   cursor: pointer;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
@@ -368,6 +369,13 @@ ul {
   transition: -webkit-transform 900ms;
   transition: transform 900ms;
   transition: transform 900ms, -webkit-transform 900ms;
+}
+
+@media screen and (min-width: 320px) {
+  .books__list .book {
+    width: 200px;
+    height: 300px;
+  }
 }
 
 .books__list .book::before {
@@ -420,7 +428,7 @@ ul {
   width: 100%;
 }
 
-.books__list .book > .back {
+.books__list .book .back {
   border: 1px solid #f0f0f0;
   position: absolute;
   padding: 0.5em;
@@ -433,6 +441,9 @@ ul {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -443,6 +454,54 @@ ul {
           backface-visibility: hidden;
   -webkit-transform: translateZ(-20px) rotateY(180deg);
           transform: translateZ(-20px) rotateY(180deg);
+}
+
+.books__list .book .back__section__label {
+  font-size: 1.1em;
+  font-weight: 500;
+  display: block;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  position: relative;
+}
+
+.books__list .book .back__section__input {
+  background-color: rgba(240, 240, 240, 0.1);
+  border: none;
+  outline: none;
+  padding: 1em 0.5em;
+  font-size: 0.9em;
+  border-radius: 3px 3px 0 0;
+  color: #f0f0f0;
+  margin: 5px 0 0;
+}
+
+.books__list .book .back__section__input__finished, .books__list .book .back__section__input__remove {
+  display: none;
+}
+
+.books__list .book .back__section__input__finished:checked ~ .toggle, .books__list .book .back__section__input__remove:checked ~ .toggle {
+  background-color: #f0f0f0;
+}
+
+.books__list .book .back__section__toggle {
+  width: 1em;
+  height: 1em;
+  border-radius: 3px;
+  border: 1px solid #f0f0f0;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.books__list .book .back__section__span {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  height: 5px;
+  width: 100%;
+  border-radius: 0 0 5px 5px;
+  background-color: rgba(240, 240, 240, 0.3);
 }
 
 .books__list .book.flipped {
@@ -483,7 +542,7 @@ ul {
   color: #000000;
   display: block;
   width: 2em;
-  border-radius: 50%;
+  border-radius: 5px;
   height: 2em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -498,13 +557,17 @@ ul {
 
 .books__list .book__progress__value {
   margin: 0 5px;
-  width: 3em;
+  width: 5em;
+  border: 1px solid #f0f0f0;
+  border-radius: 5px;
+  padding-left: 2em;
+  color: #f0f0f0;
+  background-color: #000000;
 }
 
 .books__list .book__save {
   background-color: #f0f0f0;
   color: #000000;
-  margin-top: auto;
   font-weight: 500;
   border-radius: 3px;
   padding: 3px 5px;

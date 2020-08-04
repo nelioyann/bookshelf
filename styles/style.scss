@@ -2,7 +2,6 @@
 @import "variables";
 @import "globals";
 
-
 // ::-webkit-scrollbar {
 //   width: 10px;
 // }
@@ -213,10 +212,10 @@
       margin: auto;
     }
     .book {
-      width: 200px;
-      height: 300px;
+      width: 150px;
+      height: 250px;
       // border: 1px solid $color_light;
-      // border-radius: 5px;
+      border-radius: 2px;
       cursor: pointer;
       transform-style: preserve-3d;
       background-color: $color_dark;
@@ -225,7 +224,10 @@
       position: relative;
       // transform: rotateX(25deg);
       transition: transform 900ms;
-      
+      @include breakpoint-up($size_mobile) {
+        width: 200px;
+      height: 300px;
+      }
       &::before {
         content: "";
         position: absolute;
@@ -257,7 +259,7 @@
       }
       > .front {
         border: 1px solid $color_light;
-      padding: 0.5em;
+        padding: 0.5em;
 
         position: absolute;
         top: 0;
@@ -268,26 +270,71 @@
         height: 100%;
         width: 100%;
       }
-      > .back {
+      .back {
         border: 1px solid $color_light;
         position: absolute;
-      padding: 0.5em;
+        padding: 0.5em;
 
         top: 0;
         left: 0;
         display: flex;
         flex-direction: column;
-        // justify-content: space-between;
+        justify-content: space-between;
         align-items: center;
         height: 100%;
         width: 100%;
         background-color: $color_dark;
         backface-visibility: hidden;
         transform: translateZ(-20px) rotateY(180deg);
+        &__section {
+          
+          &__label {
+            font-size: 1.1em;
+            font-weight: $font_bold;
+            display: block;
+            width: max-content;
+            position: relative;
+          }
+          &__input {
+            background-color: rgba($color_light, 0.1);
+            border: none;
+            outline: none;
+            padding: 1em 0.5em;
+            font-size: 0.9em;
+            border-radius: 3px 3px 0 0;
+            color: $color_light;
+            margin: 5px 0 0;
+            &__finished, &__remove {
+              display: none;
+              &:checked ~ .toggle {
+                background-color: $color_light;
+              }
+            }
+          }
+          &__toggle {
+            width: 1em;
+            height: 1em;
+            border-radius: 3px;
+            border: 1px solid $color_light;
+            margin-right: 5px;
+            display: inline-block;
+            // background-color: $color_light;
+            // position: absolute;
+            // transition: transform 0.5s;
+          }
+          &__span {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            height: 5px;
+            width: 100%;
+            border-radius: 0 0 5px 5px;
+            background-color: rgba($color_light, 0.3);
+          }
+        }
       }
       &.flipped {
         transform: rotateY(180deg);
-
       }
       &__new {
         &__title {
@@ -308,26 +355,31 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        &__button{
+        &__button {
           background-color: $color_light;
           color: $color_dark;
           display: block;
           width: 2em;
-          border-radius: 50%;
+          border-radius: 5px;
           height: 2em;
           display: flex;
           justify-content: center;
           align-items: center;
         }
-        &__value{
+        &__value {
           margin: 0 5px;
-          width: 3em;
+          width: 5em;
+          border: 1px solid $color_light;
+          border-radius: 5px;
+          padding-left: 2em;
+          color: $color_light;
+          background-color: $color_dark;
         }
       }
-      &__save{
+      &__save {
         background-color: $color_light;
         color: $color_dark;
-        margin-top: auto;
+        // margin-top: auto;
         font-weight: $font_bold;
         border-radius: 3px;
         padding: 3px 5px;
