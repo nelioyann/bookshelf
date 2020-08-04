@@ -89,10 +89,19 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="book__title">${book.title}</div>
             <div class="book__completion">${book.completed ? "finished" : "ongoing"}</div>
             </div>
-            <div class="back">
-              <div class="book__progress">Currently at page ${book.progress}</div>
+            <form class="back">
+              <h5>Current page</h5>
+              <div class="book__progress">
+                <span class="book__progress__button">-</span>
+                <input class="book__progress__value" value=${book.progress}></input>
+                <span class="book__progress__button">+</span>
+              </div>
+              <div class="book__save">
+                Save Changes 
+              </div>
 
-          </div>
+
+          </form>
 				</div>
 			`;
         html += li;
@@ -101,8 +110,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
       $$(".book").forEach(book =>{
         book.addEventListener("click", (e)=>{
-          e.currentTarget.classList.toggle("flipped")
+          if($(".flipped")){
+            // lg()
+            if(e.currentTarget.classList.contains("flipped")){
+              // clicked book was flipped
+              e.currentTarget.classList.remove("flipped")
+            } else{
+              $(".flipped").classList.remove("flipped")
+              e.currentTarget.classList.add("flipped")
+
+            }
+          }
+          else{
+            // no cards flipped
+            e.currentTarget.classList.add("flipped")
+          }
           // lg(e.currentTarget)
+        })
+      })
+
+      $$(".book__progress__button").forEach(button =>{
+        button.addEventListener("click", e=>{
+          e.stopPropagation()
+          lg(e.currentTarget)
         })
       })
     } else {

@@ -454,9 +454,9 @@ ul {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 100%;
   width: 100%;
   background-color: #000000;
@@ -487,6 +487,48 @@ ul {
 
 .books__list .book__progress {
   font-weight: 500;
+  font-size: 0.8em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.books__list .book__progress__button {
+  background-color: #f0f0f0;
+  color: #000000;
+  display: block;
+  width: 2em;
+  border-radius: 50%;
+  height: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.books__list .book__progress__value {
+  margin: 0 5px;
+  width: 3em;
+}
+
+.books__list .book__save {
+  background-color: #f0f0f0;
+  color: #000000;
+  margin-top: auto;
+  font-weight: 500;
+  border-radius: 3px;
+  padding: 3px 5px;
   font-size: 0.8em;
 }
 

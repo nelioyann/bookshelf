@@ -1,4 +1,4 @@
-const version = 61;
+const version = 63;
 const staticCacheName = `site-static-v${version}`
 const dynamicCache = `site-dynamic-v${version}`
 // Fichier qui seront cacher
@@ -14,9 +14,7 @@ const assets = [
     './images/logo.png',
     './images/icons/icon-72x72.png',
     './images/icons/icon-144x144.png',
-    './images/icons/icon-152x152.png',
-    "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js",
-  
+    './images/icons/icon-152x152.png',  
     "https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500&display=swap",
 
     
@@ -81,7 +79,7 @@ self.addEventListener('fetch',(event)=>{
             return cacheResponse || fetch(event.request).then(fetchResponse =>{
                 return caches.open(dynamicCache).then(cache =>{
                     cache.put(event.request.url, fetchResponse.clone());
-                    limitCacheSize(dynamicCacheName, 50);
+                    limitCacheSize(dynamicCache, 50);
                     return fetchResponse;
                 })
             });
