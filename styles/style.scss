@@ -3,27 +3,27 @@
 @import "globals";
 
 
-::-webkit-scrollbar {
-  width: 10px;
-}
-/* Track */
-::-webkit-scrollbar-track {
-  background: $color_dark;
-  // border: 1px dotted $color_light;
-  border-radius: 5px;
-  // padding: 0.2em;
-}
+// ::-webkit-scrollbar {
+//   width: 10px;
+// }
+// /* Track */
+// ::-webkit-scrollbar-track {
+//   background: $color_dark;
+//   // border: 1px dotted $color_light;
+//   border-radius: 5px;
+//   // padding: 0.2em;
+// }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: rgba($color_light, 1);
-  border-radius: 5px;
+// /* Handle */
+// ::-webkit-scrollbar-thumb {
+//   background: rgba($color_light, 1);
+//   border-radius: 5px;
 
-}
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: $color_light;
-}
+// }
+// /* Handle on hover */
+// ::-webkit-scrollbar-thumb:hover {
+//   background: $color_light;
+// }
 
 .body__section {
   margin: auto;
