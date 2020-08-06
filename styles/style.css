@@ -465,7 +465,12 @@ ul {
 .books__list .book .back__section__label {
   font-size: 1.1em;
   font-weight: 500;
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -492,8 +497,8 @@ ul {
 }
 
 .books__list .book .back__section__toggle {
-  width: 0.5em;
-  height: 0.5em;
+  width: 1em;
+  height: 1em;
   border-radius: 2px;
   border: 1px solid #f0f0f0;
   margin-right: 5px;
@@ -528,6 +533,7 @@ ul {
 .books__list .book__completion {
   font-weight: 500;
   font-size: 0.8em;
+  text-align: right;
 }
 
 .books__list .book__progress {
@@ -548,8 +554,12 @@ ul {
   background-color: #f0f0f0;
   color: #000000;
   display: block;
-  width: 2em;
-  height: 2em;
+  width: 3em;
+  height: 3em;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   border-radius: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -560,6 +570,13 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media screen and (min-width: 370px) {
+  .books__list .book__progress__button {
+    width: 2em;
+    height: 2em;
+  }
 }
 
 .books__list .book__progress__value {

@@ -297,7 +297,8 @@
           &__label {
             font-size: 1.1em;
             font-weight: $font_bold;
-            display: block;
+            display: flex;
+            align-items: center;
             width: max-content;
             position: relative;
           }
@@ -318,8 +319,8 @@
             }
           }
           &__toggle {
-            width: 0.5em;
-            height: 0.5em;
+            width: 1em;
+            height: 1em;
             border-radius: 2px;
             border: 1px solid $color_light;
             margin-right: 5px;
@@ -355,6 +356,7 @@
       &__completion {
         font-weight: $font_bold;
         font-size: 0.8em;
+        text-align: right;
       }
       &__progress {
         font-weight: $font_bold;
@@ -366,12 +368,17 @@
           background-color: $color_light;
           color: $color_dark;
           display: block;
-          width: 2em;
-          height: 2em;
+          width: 3em;
+          height: 3em;
+          user-select: none;
           border-radius: 5px;
           display: flex;
           justify-content: center;
           align-items: center;
+          @include breakpoint-up($size_mobile){
+            width: 2em;
+          height: 2em;
+          }
         }
         &__value {
           margin: 0 5px;

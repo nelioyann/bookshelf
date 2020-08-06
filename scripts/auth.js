@@ -83,12 +83,13 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
       data.forEach((doc) => {
         const book = doc.data();
+        let page = `curent page: ${book.progress} `
         // lg(doc)
         const li = `
         <div class="book">
           <div class="front">
             <div class="book__title">${book.title}</div>
-            <div class="book__completion">${book.completed ? "finished" : "ongoing"} at page ${book.progress}</div>
+            <div class="book__completion">${book.completed ? "finished" : page}</div>
             </div>
             <form class="back" data-id=${doc.id}>
               <section class="book__progress back__section">
