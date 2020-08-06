@@ -437,6 +437,7 @@ ul {
   border: 1px solid #f0f0f0;
   position: absolute;
   padding: 0.5em;
+  font-size: 0.8rem;
   top: 0;
   left: 0;
   display: -webkit-box;
