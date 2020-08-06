@@ -548,8 +548,8 @@ ul {
   background-color: #f0f0f0;
   color: #000000;
   display: block;
-  width: 1.5em;
-  height: 1.5em;
+  width: 3em;
+  height: 2em;
   border-radius: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -567,7 +567,7 @@ ul {
   width: 5em;
   border: 1px solid #f0f0f0;
   border-radius: 5px;
-  padding-left: 2em;
+  padding: 0.5em;
   color: #f0f0f0;
   background-color: #000000;
 }

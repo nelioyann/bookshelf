@@ -363,8 +363,8 @@
           background-color: $color_light;
           color: $color_dark;
           display: block;
-          width: 1.5em;
-          height: 1.5em;
+          width: 3em;
+          height: 2em;
           border-radius: 5px;
           display: flex;
           justify-content: center;
@@ -375,7 +375,7 @@
           width: 5em;
           border: 1px solid $color_light;
           border-radius: 5px;
-          padding-left: 2em;
+          padding: 0.5em;
           color: $color_light;
           background-color: $color_dark;
         }
