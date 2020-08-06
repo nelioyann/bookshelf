@@ -225,8 +225,11 @@
       margin: 5px;
       opacity: 0;
       position: relative;
-      // transform: rotateX(25deg);
-      transition: transform 900ms;
+      // transform: rotateX(10deg);
+      transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+      // &:hover{
+      //   transform: scale(1.02);
+      // }
       @include breakpoint-up($size_mobile) {
         width: 200px;
       height: 300px;
@@ -260,7 +263,7 @@
         transform: rotateY(90deg);
         // transform: rotateX(45deg);
       }
-      > .front {
+      .front {
         border: 1px solid $color_light;
         padding: 0.5em;
 
@@ -363,7 +366,7 @@
           background-color: $color_light;
           color: $color_dark;
           display: block;
-          width: 3em;
+          width: 2em;
           height: 2em;
           border-radius: 5px;
           display: flex;
