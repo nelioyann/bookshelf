@@ -88,13 +88,13 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="book">
           <div class="front">
             <div class="book__title">${book.title}</div>
-            <div class="book__completion">${book.completed ? "finished" : "ongoing"}</div>
+            <div class="book__completion">${book.completed ? "finished" : "ongoing"} at page ${book.progress}</div>
             </div>
-            <form class="back">
+            <form class="back" data-id=${doc.id}>
               <section class="book__progress back__section">
-                <span class="book__progress__button">-</span>
+                <span class="book__progress__button book__progress__button__minus">-</span>
                 <input class="book__progress__value" type="number" name="progress" value=${book.progress}></input>
-                <span class="book__progress__button">+</span>
+                <span class="book__progress__button book__progress__button__plus">+</span>
               </section>
 
               <section class="back__section">
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-              <button class="book__save">
+              <button class="book__save" >
                 Save Changes 
               </button>
 
@@ -129,6 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       $(".books__list").innerHTML = html;
 
+     
       $$(".book").forEach(book =>{
         book.addEventListener("click", (e)=>{
           if($(".flipped")){
@@ -153,7 +154,17 @@ document.addEventListener("DOMContentLoaded", () => {
       $$(".book__progress__button").forEach(button =>{
         button.addEventListener("click", e=>{
           e.stopPropagation()
-          lg(e.currentTarget)
+          // lg(e.currentTarget)
+          if (e.currentTarget.innerHTML == "+"){
+            let value = parseInt(e.currentTarget.parentElement.querySelector(".book__progress__value").value) + 1
+            lg(e.currentTarget.parentElement.querySelector(".book__progress__value"))
+            e.currentTarget.parentElement.querySelector(".book__progress__value").value = value
+          }
+          else if (e.currentTarget.innerHTML == "-" && parseInt(e.currentTarget.parentElement.querySelector(".book__progress__value").value) > 0){
+            let value = parseInt(e.currentTarget.parentElement.querySelector(".book__progress__value").value) - 1
+            lg(value)
+            e.currentTarget.parentElement.querySelector(".book__progress__value").value = value
+          }
         })
       })
         
@@ -165,11 +176,34 @@ document.addEventListener("DOMContentLoaded", () => {
             lg(e.currentTarget)
           })
         })
-        $$(".book__save").forEach(button =>{
-          button.addEventListener("click", e=>{
-            e.preventDefault()
+        $$(".back").forEach(backForm =>{
+          backForm.addEventListener("submit", e=>{
             e.stopPropagation()
-            lg(e.currentTarget)
+            e.preventDefault()
+
+            lg(e.currentTarget["progress"].value)
+            lg(e.currentTarget["finished"].checked)
+            let remove = (e.currentTarget["remove"].checked)
+            let user = auth.currentUser;
+            let docId = e.currentTarget.getAttribute("data-id")
+            lg(user.uid)
+
+
+            if (remove){
+              lg("deleting the document")
+              db.collection("users")
+            .doc(user.uid)
+            .collection("books").doc(docId).delete()
+            } else{
+              db.collection("users")
+            .doc(user.uid)
+            .collection("books").doc(docId).update({
+              completed: e.currentTarget["finished"].checked,
+              progress: e.currentTarget["progress"].value
+            })
+            }
+            
+
           })
         })
     } else {
