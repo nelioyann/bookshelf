@@ -286,25 +286,25 @@ ul {
 }
 
 .auth__form .auth__section__input::-webkit-input-placeholder {
-  font-size: 1.3em;
+  font-size: 1em;
   color: rgba(240, 240, 240, 0.3);
   font-weight: 100;
 }
 
 .auth__form .auth__section__input:-ms-input-placeholder {
-  font-size: 1.3em;
+  font-size: 1em;
   color: rgba(240, 240, 240, 0.3);
   font-weight: 100;
 }
 
 .auth__form .auth__section__input::-ms-input-placeholder {
-  font-size: 1.3em;
+  font-size: 1em;
   color: rgba(240, 240, 240, 0.3);
   font-weight: 100;
 }
 
 .auth__form .auth__section__input::placeholder {
-  font-size: 1.3em;
+  font-size: 1em;
   color: rgba(240, 240, 240, 0.3);
   font-weight: 100;
 }
