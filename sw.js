@@ -13,6 +13,7 @@ const assets = [
     './scripts/auth.js',
     './scripts/app.js',
     './images/logo.png',
+    './images/thumbnail.png',
     './images/icons/icon-72x72.png',
     './images/icons/icon-144x144.png',
     './images/icons/icon-152x152.png',  
