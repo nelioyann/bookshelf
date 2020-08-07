@@ -26,7 +26,6 @@
 
 .body__section {
   margin: auto;
-  // overflow-x: hidden;
   @include breakpoint-up($size_mobile) {
     max-width: $size_tablet;
   }
@@ -43,7 +42,7 @@
   // flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 50px 0;
+  padding: 2em 0;
   &__logo {
     width: 50px;
     height: 50px;
@@ -65,7 +64,7 @@
 }
 
 .navigation {
-  padding: 25px 0;
+  padding: 1em 0;
   @include breakpoint-up($size_mobile) {
     padding: 0;
   }
@@ -192,7 +191,7 @@
       cursor: pointer;
       font-weight: $font_bold;
       border: none;
-      margin: 50px auto 0;
+      margin: 2em auto 0;
       font-size: 1em;
     }
   }

@@ -3,7 +3,7 @@
   font-size: 16px;
 }
 
-@media screen and (min-width: 370px) {
+@media screen and (min-width: 320px) {
   :root {
     font-size: 16px;
   }
@@ -98,7 +98,7 @@ ul {
   margin: auto;
 }
 
-@media screen and (min-width: 370px) {
+@media screen and (min-width: 320px) {
   .body__section {
     max-width: 768px;
   }
@@ -126,7 +126,7 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 50px 0;
+  padding: 2em 0;
 }
 
 .header__logo {
@@ -155,10 +155,10 @@ ul {
 }
 
 .navigation {
-  padding: 25px 0;
+  padding: 1em 0;
 }
 
-@media screen and (min-width: 370px) {
+@media screen and (min-width: 320px) {
   .navigation {
     padding: 0;
   }
@@ -251,7 +251,7 @@ ul {
   margin: 0 0 50px 0;
 }
 
-@media screen and (min-width: 370px) {
+@media screen and (min-width: 320px) {
   .auth__form .auth__section {
     margin: 0 0 25px 0;
   }
@@ -328,7 +328,7 @@ ul {
   cursor: pointer;
   font-weight: 500;
   border: none;
-  margin: 50px auto 0;
+  margin: 2em auto 0;
   font-size: 1em;
 }
 
@@ -336,7 +336,7 @@ ul {
   overflow-x: auto;
 }
 
-@media screen and (min-width: 370px) {
+@media screen and (min-width: 320px) {
   .books {
     margin-top: 50px;
   }
@@ -376,7 +376,7 @@ ul {
   transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@media screen and (min-width: 370px) {
+@media screen and (min-width: 320px) {
   .books__list .book {
     width: 200px;
     height: 300px;
@@ -572,7 +572,7 @@ ul {
           align-items: center;
 }
 
-@media screen and (min-width: 370px) {
+@media screen and (min-width: 320px) {
   .books__list .book__progress__button {
     width: 2em;
     height: 2em;
@@ -615,7 +615,7 @@ ul {
   margin: 0 0 50px 0;
 }
 
-@media screen and (min-width: 370px) {
+@media screen and (min-width: 320px) {
   .books__form .books__section {
     margin: 0 0 25px 0;
   }

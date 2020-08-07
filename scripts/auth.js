@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       // hide account info
       //   accountDetails.innerHTML = ""
-      $(".header__title").innerHTML = `Log in to view your library`;
+      $(".header__title").innerHTML = `Hello`;
 
       // showFeedback("hide logged-in");
       gsap.timeline()
