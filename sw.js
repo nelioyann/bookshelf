@@ -17,6 +17,7 @@ const assets = [
     './images/icons/icon-72x72.png',
     './images/icons/icon-144x144.png',
     './images/icons/icon-152x152.png',  
+    './images/icons/maskable_icon.png',  
     './images/favicon.ico',  
     "https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500&display=swap",
 

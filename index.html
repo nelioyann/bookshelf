@@ -13,26 +13,25 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="BookShelf" />
-  <link rel="apple-touch-icon" href="./images/icons/icon-152x152.png" />
+  <link rel="apple-touch-icon" href="./images/icons/maskable_icon.png" />
   <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
   <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
-  
-  <meta property="og:image" content="./images/thumbnail.png" />
-	<meta property="og:type" content="website" />
 
+  <meta property="og:image" content="./images/thumbnail.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mybookshelf.tk" />
+  <meta property="og:title" content="Your personal online bookshelf" />
+  <meta property="og:description" content="A web application that keeps tracks of your favorite books for you" />
   <meta name="twitter:card" content="BookShelf" />
-<meta name="twitter:site" content="@nytimesbits" />
-<meta name="twitter:creator" content="@nelioyann" />
-<meta property="og:url" content="https://mybookshelf.tk" />
-<meta property="og:title" content="Your personal online bookshelf" />
-<meta property="og:description" content="A web application that keeps tracks of your favorite books for you" />
+  <meta name="twitter:site" content="@nelioyann" />
+  <meta name="twitter:creator" content="@nelioyann" />
 </head>
 
 <body>
   <header class="body__section header">
     <div class="header__logo">
       <img class="header__logo__image" src="./images/icons/icon-152x152.png" alt="Logo" />
-      
+
       <span class="header__logo__text">BookShelf</span>
     </div>
     <h1 class="header__title">...</h1>
@@ -62,7 +61,7 @@
     </ul>
   </nav>
 
-  
+
   <!-- Authentification -->
   <main class="body__section auth">
     <form class="auth__form auth__signin">
@@ -81,10 +80,11 @@
       </button>
     </form>
     <form class="auth__form auth__signup" autocomplete="off">
-      
+
       <section class="auth__section">
         <label class="auth__section__label" for="new-email">Email</label><input class="auth__section__input"
-          id="new-email" name="new-email" autocomplete="off" type="email" placeholder="Enter an email adress" required />
+          id="new-email" name="new-email" autocomplete="off" type="email" placeholder="Enter an email adress"
+          required />
       </section>
       <section class="auth__section">
         <label class="auth__section__label" for="new-password">Password</label><input class="auth__section__input"
@@ -93,7 +93,8 @@
       </section>
       <section class="auth__section">
         <label class="auth__section__label" for="username">Username</label><input class="auth__section__input"
-          name="newUsername" id="username" value="bookworm" type="text" autocomplete="off" placeholder="Enter a username" required />
+          name="newUsername" id="username" value="bookworm" type="text" autocomplete="off"
+          placeholder="Enter a username" required />
       </section>
 
       <button class="auth__form__button form__button auth__form__button__signup">
@@ -117,7 +118,8 @@
       </section>
       <section class="books__section">
         <label class="books__section__label" for="progress">Progression</label><input class="books__section__input"
-          id="progress" type="number" inputmode="numeric" value="0" placeholder="Enter current page" name="progress" required />
+          id="progress" type="number" inputmode="numeric" value="0" placeholder="Enter current page" name="progress"
+          required />
         <span class="books__section__span"></span>
       </section>
       <section class="books__section">
@@ -178,7 +180,7 @@
   <script src="./scripts/animations.js"></script>
   <script src="./scripts/script.js"></script>
   <script src="./scripts/auth.js"></script>
-  <script src="./scripts/app.js"></script>
+  <cript> src="./scripts/app.js"></script>
 </body>
 
 </html>
