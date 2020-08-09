@@ -195,6 +195,8 @@ document.addEventListener("DOMContentLoaded", () => {
               db.collection("users")
             .doc(user.uid)
             .collection("books").doc(docId).delete()
+            showFeedback("Book removed");
+
             } else{
               db.collection("users")
             .doc(user.uid)
@@ -209,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     } else {
       lg("no books")
-      $(".books__list").innerHTML = `<h5 class="books__list__text">You don't have any book yet</h5>`;
+      $(".books__list").innerHTML = `<h5 class="books__list__text">A room without books is like a body without a soul.</h5>`;
     }
   };
 
