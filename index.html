@@ -34,7 +34,13 @@
 
       <span class="header__logo__text">BookShelf</span>
     </div>
-    <h1 class="header__title">...</h1>
+    <h1 class="header__title">
+      <span class="greetings"></span>
+      <span class="logged-in link__signout"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M14.7656 4.21875C15.6206 4.9202 16.3093 5.80257 16.7821 6.80227C17.2549 7.80198 17.5001 8.89412 17.5 10C17.5 14.1406 14.1406 17.5 10 17.5C5.85938 17.5 2.5 14.1406 2.5 10C2.49672 8.89749 2.73655 7.80781 3.20242 6.80856C3.66829 5.8093 4.34874 4.92505 5.19532 4.21875" stroke="red" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M10 2.5V10" stroke="red" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      </span></h1>
   </header>
 
   <!-- Navigation -->
@@ -48,9 +54,9 @@
       <li class="navigation__items__item navigation__items__item-signup logged-out">
         <button data-target="auth__signup" class="link">Sign Up</button>
       </li>
-      <li class="navigation__items__item navigation__items__item-signout logged-in">
+      <!-- <li class="navigation__items__item navigation__items__item-signout logged-in">
         <button class="link link__signout">Log Out</button>
-      </li>
+      </li> -->
       <li class="navigation__items__item navigation__items__item-books logged-in">
         <button data-target="books__list" class="link link__books">My books</button>
       </li>
@@ -180,7 +186,7 @@
   <script src="./scripts/animations.js"></script>
   <script src="./scripts/script.js"></script>
   <script src="./scripts/auth.js"></script>
-  <cript> src="./scripts/app.js"></script>
+  <script src="./scripts/app.js"></script>
 </body>
 
 </html>

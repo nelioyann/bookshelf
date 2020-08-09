@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // doc.collection("books").get().then(snapshot =>{
           //   lg(snapshot)
           // })
-          $(".header__title").innerHTML = `Hello, ${doc.data().username}`;
+          $(".greetings").innerHTML = `Hello, ${doc.data().username} `;
           // $(".header__title").innerHTML = `Logged in as ${user.email}`;
         });
 
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       // hide account info
       //   accountDetails.innerHTML = ""
-      $(".header__title").innerHTML = `Hello`;
+      $(".greetings").innerHTML = `Hello`;
 
       // showFeedback("hide logged-in");
       gsap.timeline()

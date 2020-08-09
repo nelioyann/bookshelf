@@ -59,6 +59,15 @@
   &__title {
     font-weight: $font_light;
     font-size: 1em;
+    display: flex;
+    align-items: center;
+    .link__signout{
+      display: block;
+      margin-left: 0.5em;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
     // display: none;
   }
 }
