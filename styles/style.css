@@ -162,6 +162,10 @@ ul {
           align-items: center;
 }
 
+.header__title .greetings {
+  font-size: 0.8em;
+}
+
 .header__title .link__signout {
   display: none;
   margin-left: 0.5em;
