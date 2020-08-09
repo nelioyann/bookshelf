@@ -163,7 +163,7 @@ ul {
 }
 
 .header__title .link__signout {
-  display: block;
+  display: none;
   margin-left: 0.5em;
   cursor: pointer;
   display: -webkit-box;
