@@ -6,14 +6,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="./styles/style.css" />
-  <meta name="theme-color" content="#592acb" />
-  <meta name="description" content="A web application that keeps tracks of your favorite books for you" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="A web application that keeps tracks of your favorite books for you. Never forget the books you've read and those you're currently reading." />
   <title>BookShelf</title>
   <link rel="manifest" href="manifest.json" />
 
-
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <link rel="apple-touch-icon" href="./images/icons/maskable_icon.png" />
+  <link rel="apple-touch-icon" sizes="57x57" href="images/pwa_icons/apple-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="images/pwa_icons/apple-icon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="images/pwa_icons/apple-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="images/pwa_icons/apple-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="images/pwa_icons/apple-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="images/pwa_icons/apple-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="images/pwa_icons/apple-icon-144x144.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="images/pwa_icons/apple-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/pwa_icons/apple-icon-180x180.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="images/pwa_icons/android-icon-192x192.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/pwa_icons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="images/pwa_icons/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/pwa_icons/favicon-16x16.png" />
+  <meta name="msapplication-TileColor" content="#ffffff" />
+  <meta name="msapplication-TileImage" content="images/pwa_icons/ms-icon-144x144.png" />
+
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="BookShelf" />
   <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
@@ -23,7 +37,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mybookshelf.tk" />
   <meta property="og:title" content="Your personal online bookshelf" />
-  <meta property="og:description" content="A web application that keeps tracks of your favorite books for you" />
+  <meta property="og:description" content="A web application that keeps tracks of your favorite books for you. Never forget the books you've read and those you're currently reading." />
   <meta name="twitter:card" content="BookShelf" />
   <meta name="twitter:site" content="@nelioyann" />
   <meta name="twitter:creator" content="@nelioyann" />
@@ -38,11 +52,15 @@
     </div>
     <h1 class="header__title">
       <span class="greetings"></span>
-      <span class="logged-in link__signout" style="display: none;"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M14.7656 4.21875C15.6206 4.9202 16.3093 5.80257 16.7821 6.80227C17.2549 7.80198 17.5001 8.89412 17.5 10C17.5 14.1406 14.1406 17.5 10 17.5C5.85938 17.5 2.5 14.1406 2.5 10C2.49672 8.89749 2.73655 7.80781 3.20242 6.80856C3.66829 5.8093 4.34874 4.92505 5.19532 4.21875" stroke="red" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M10 2.5V10" stroke="red" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      </span></h1>
+      <span class="logged-in link__signout" style="display: none;"><svg width="20" height="20" viewBox="0 0 20 20"
+          fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M14.7656 4.21875C15.6206 4.9202 16.3093 5.80257 16.7821 6.80227C17.2549 7.80198 17.5001 8.89412 17.5 10C17.5 14.1406 14.1406 17.5 10 17.5C5.85938 17.5 2.5 14.1406 2.5 10C2.49672 8.89749 2.73655 7.80781 3.20242 6.80856C3.66829 5.8093 4.34874 4.92505 5.19532 4.21875"
+            stroke="red" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M10 2.5V10" stroke="red" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </span>
+    </h1>
   </header>
 
   <!-- Navigation -->
@@ -60,15 +78,18 @@
         <button class="link link__signout">Log Out</button>
       </li> -->
       <li class="navigation__items__item navigation__items__item-books logged-in">
-        <button data-target="books__list" class="link link__books">My books</button>
+        <button data-target="books__list" class="link link__books">
+          My books
+        </button>
       </li>
 
       <li class="navigation__items__item navigation__items__item-add logged-in">
-        <button data-target="books__add" class="link link__add">Add a new book</button>
+        <button data-target="books__add" class="link link__add">
+          Add a new book
+        </button>
       </li>
     </ul>
   </nav>
-
 
   <!-- Authentification -->
   <main class="body__section auth">
@@ -88,7 +109,6 @@
       </button>
     </form>
     <form class="auth__form auth__signup" autocomplete="off">
-
       <section class="auth__section">
         <label class="auth__section__label" for="new-email">Email</label><input class="auth__section__input"
           id="new-email" name="new-email" autocomplete="off" type="email" placeholder="Enter an email adress"
@@ -125,7 +145,7 @@
         <span class="books__section__span"></span>
       </section>
       <section class="books__section">
-        <label class="books__section__label" for="progress">Progression</label><input class="books__section__input"
+        <label class="books__section__label" for="progress">Current page</label><input class="books__section__input"
           id="progress" type="number" inputmode="numeric" value="0" placeholder="Enter current page" name="progress"
           required />
         <span class="books__section__span"></span>
