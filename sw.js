@@ -1,4 +1,4 @@
-const version = 10;
+const version = 12;
 const staticCacheName = `site-static-v${version}`
 const dynamicCache = `site-dynamic-v${version}`
 // Fichier qui seront cacher
@@ -6,6 +6,7 @@ const assets = [
     '/',
     '/manifest.json',
     '/index.html',
+    '/signin.html',
     './styles/style.css',
     './styles/style.css.map',
     './scripts/script.js',
@@ -86,6 +87,10 @@ self.addEventListener('fetch',(event)=>{
                     limitCacheSize(dynamicCache, 70);
                     return fetchResponse;
                 })
+            },
+            (error)=>{
+                return caches.match('/index.html');
+
             });
         }).catch((err)=> {
             if(event.request.url.indexOf('.html') > -1){

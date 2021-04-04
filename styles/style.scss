@@ -1,5 +1,6 @@
 @import "mixins";
 @import "variables";
+@import "mockup";
 @import "globals";
 
 // ::-webkit-scrollbar {
@@ -499,4 +500,12 @@
       font-size: 1em;
     }
   }
+}
+
+.hero{text-align: center}
+
+.demo{
+  border: 0.2em solid $color_light;
+  background-color:transparent;
+  color: $color_light;
 }

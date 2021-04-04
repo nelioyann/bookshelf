@@ -1,0 +1,308 @@
+// $mobile-height: 680;
+// 282 x 518
+// 360 x 680
+// $mobile-height: 700;
+$ratio: 1.9;
+$mobile-width: 200;
+$mobile-height: $mobile-width * $ratio; 
+$index-tapbar: 2;
+$size-tapbar: 30px;
+$shadow-width: 20px;
+$mobile-side: 70mm;
+$mobile-thicness: 20;
+$mobile-max-width: 330;
+
+$color-dark: #000000;
+$color-light: #f0f0f0;
+
+
+@mixin make3D($arg) {
+    transform-style: preserve-3d;
+    perspective: $arg;
+}
+
+
+
+
+.iphone-container {
+    // transform: scale(0.8);
+    margin: 5em auto 10em;
+    // padding-top: 5em;
+    max-width: calc(#{$mobile-max-width} * 1px);
+
+    @include breakpoint-down(400px) {
+        transform: scale(0.4);
+        display:none;
+
+    }
+
+}
+
+$color-case: rgb(232, 232, 232);
+// $color-case: rgb(183, 183, 183);
+
+
+
+.iphone {
+    position: relative;
+    // height: calc(#{$mobile-height}  * 1px);
+    height: $mobile-height * 1px;
+    width: $mobile-width * 1px;
+    // transform: rotateY(171deg) rotateX(93deg);
+    @include make3D(0px);
+
+    &__front,
+    &__back,
+    &__right,
+    &__left {
+        height: 100%;
+    }
+
+    &__front,
+    &__back,
+    &__right,
+    &__left,
+    &__bottom,
+    &__top {
+        background-color: lighten($color-case, 3);
+        position: absolute;
+        // backface-visibility: hidden;
+    }
+
+    &__back,
+    &__front {
+        top: 0;
+        left: 0;
+        border-radius: 10px;
+        width: 100%;
+
+    }
+
+    &__left,
+    &__right {
+        width: $mobile-thicness * 1px;
+
+
+    }
+
+    &__left,
+    &__right,
+    &__top,
+    &__bottom {
+        border-radius: 50px;
+        // box-shadow: inset 0 0 4px rgb(71, 71, 71);
+    }
+
+    &__top,
+    &__bottom {
+        width: $mobile-width * 1px;
+        height: $mobile-thicness * 1px;
+    }
+
+    &__front {
+
+        backface-visibility: visible;
+        box-shadow: 0px 0px 0px 11px darken($color-case, 80), 0px 0px 0px 13px darken($color-case, 4), 0px 0px 0px 20px darken($color-case, 3);
+        background-color: $color-case;
+        position: relative;
+        overflow: hidden;
+
+        .iphone__bar,
+        .iphone__notch,
+        .iphone__indicator,
+        .iphone__frame {
+            position: absolute;
+            backface-visibility: hidden;
+        }
+
+        .iphone__bar {
+            top: 0;
+            left: 0;
+            color: darken($color-light, 5);
+            font-family: sans-serif;
+            font-size: clamp(0.5em,$mobile-width * 0.05px , 0.8em);
+            font-weight: bold;
+            padding: 0 1.5em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: lighten($color-dark, 3);
+            // background-color: #585A79;
+            width: 100%;
+            height: $size-tapbar;
+            z-index: $index-tapbar;
+
+            .right {
+                display: flex;
+                font-size: 0.6em;
+            }
+        }
+
+        .iphone__notch {
+            background-color: $color-dark;
+            top: 0;
+            width: 56%;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 25px;
+            position: relative;
+            z-index: calc(#{$index-tapbar} + 1);
+            border-radius: 0px 0px 20px 20px;
+
+            .speaker,
+            .camera {
+                position: absolute;
+            }
+
+            .speaker {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                height: 8px;
+                width: 30%;
+                z-index: calc(#{$index-tapbar} + 2);
+                background-color: darken($color-dark, 5);
+                border-radius: 8px;
+                box-shadow: inset 0px -3px 3px 0px rgba($color-light, 0.2);
+            }
+
+            .camera {
+                right: 15%;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: calc(#{$index-tapbar} + 2);
+                width: 12px;
+                height: 12px;
+                background-color: darken($color-dark, 5);
+                border-radius: 12px;
+                box-shadow: inset 0px -3px 2px 0px rgba(255, 255, 255, 0.2);
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    background-color: #2d4d76;
+                    width: 6px;
+                    z-index: calc(#{$index-tapbar} + 4);
+                    height: 6px;
+                    top: 3px;
+                    left: 3px;
+                    display: block;
+                    border-radius: 4px;
+                    box-shadow: inset 0px -2px 2px rgba(0, 0, 0, 0.5);
+                }
+            }
+        }
+
+        .iphone__indicator {
+            position: absolute;
+            bottom: 7px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40%;
+            height: 4px;
+            background-color: $color-light;
+            border-radius: 10px;
+        }
+
+        .iphone__frame {
+
+            top: $size-tapbar;
+            border: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            backface-visibility: hidden;
+            width: 100%;
+            // box-shadow: 0px 0px 0px 11px $color-dark, 0px 0px 0px 13px #191919, 0px 0px 0px 20px #111, inset 0 0 40px rgb(71, 71, 71);
+
+            height: calc(100% - #{$size-tapbar});
+        }
+
+
+
+    }
+
+    &__back {
+        transform: rotateY(0.5turn) translateZ($mobile-thicness * 1px);
+        box-shadow: 0px 0px 0px 20px $color-case, inset 0 0 40px -40px rgb(71, 71, 71);
+        // display: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        backface-visibility: visible;
+
+        &__logo {
+            --color-beans: #4A120F;
+            width: 7em;
+
+            #beans {
+                fill: black;
+            }
+        }
+
+    }
+
+    &__left {
+
+        top: 0;
+        left: -$shadow-width;
+        transform-origin: left;
+        transform: rotateY(-0.25turn) translateX(-$mobile-thicness * 1px);
+
+    }
+
+    &__right {
+        top: 0;
+        transform-origin: right;
+        right: -$shadow-width;
+        transform: rotateY(0.25turn) translateX($mobile-thicness * 1px);
+
+    }
+
+    &__top {
+        top: -$shadow-width * 2;
+        left: 0;
+        transform-origin: bottom;
+        transform: rotateX(0.25turn);
+    }
+
+    &__bottom {
+        bottom: -shadow-width;
+        transform-origin: bottom;
+        transform: rotateX(-0.25turn) translateY($mobile-thicness * 1px);
+
+    }
+
+
+}
+
+
+
+
+
+
+
+.spin {
+    animation-name: spin;
+    animation-duration: 5s;
+    transform-origin: center;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0.79, -0.37, 0.32, 1.49);
+}
+
+@keyframes spin {
+    0% {
+        transform: rotateY(0turn) rotateZ(5deg) scale(1);
+    }
+
+    // 60%,80%{
+    //   transform: rotateY(1turn)  rotateZ(15deg) scale(1.3);
+
+    // }
+
+    100% {
+        transform: rotateY(1turn) rotateZ(5deg) scale(1);
+
+    }
+}

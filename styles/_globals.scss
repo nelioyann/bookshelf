@@ -15,6 +15,28 @@
 	box-sizing: border-box;
 }
 
+
+
+::-webkit-scrollbar {
+	width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+	background: #0b0b0b;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+	background: #f2f2f2;
+	border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+	background: #454545;
+  }
+
 html{
 	overflow-x: hidden;
 }
@@ -23,7 +45,7 @@ body {
 	padding: 0;
 	line-height: 1.4;
 	width: 100vw;
-	overflow: hidden;
+	overflow-x: hidden;
 	padding: 0 1em;
 	min-height: 100vh;
 	font-family: $font_body;
@@ -41,6 +63,9 @@ body {
 	}
 	&-ai-c {
 		align-items: center;
+	}
+	&-d-c{
+		flex-direction: column;
 	}
 }
 
@@ -76,3 +101,19 @@ ul{
 	// display: none;
 	z-index: 3;
   }
+
+
+a, button{
+	background-color: $color_primary;
+      color: $color_dark;
+      padding: 0.5em 3em;
+      border-radius: 5px;
+	  display: block;
+	  width:max-content;
+      font-weight: $font_bold;
+	  text-decoration: none;
+      border: none;
+      margin: 1em auto;
+      cursor: pointer;
+      font-size: 1em;
+}

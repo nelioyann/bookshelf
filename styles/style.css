@@ -1,4 +1,289 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500&display=swap");
+.iphone-container {
+  margin: 5em auto 10em;
+  max-width: calc(330 * 1px);
+}
+
+@media screen and (max-width: 400px) {
+  .iphone-container {
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4);
+    display: none;
+  }
+}
+
+.iphone {
+  position: relative;
+  height: 380px;
+  width: 200px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 0px;
+          perspective: 0px;
+}
+
+.iphone__front, .iphone__back, .iphone__right, .iphone__left {
+  height: 100%;
+}
+
+.iphone__front, .iphone__back, .iphone__right, .iphone__left, .iphone__bottom, .iphone__top {
+  background-color: #f0f0f0;
+  position: absolute;
+}
+
+.iphone__back, .iphone__front {
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.iphone__left, .iphone__right {
+  width: 20px;
+}
+
+.iphone__left, .iphone__right, .iphone__top, .iphone__bottom {
+  border-radius: 50px;
+}
+
+.iphone__top, .iphone__bottom {
+  width: 200px;
+  height: 20px;
+}
+
+.iphone__front {
+  -webkit-backface-visibility: visible;
+          backface-visibility: visible;
+  -webkit-box-shadow: 0px 0px 0px 11px #1c1c1c, 0px 0px 0px 13px #dedede, 0px 0px 0px 20px #e0e0e0;
+          box-shadow: 0px 0px 0px 11px #1c1c1c, 0px 0px 0px 13px #dedede, 0px 0px 0px 20px #e0e0e0;
+  background-color: #e8e8e8;
+  position: relative;
+  overflow: hidden;
+}
+
+.iphone__front .iphone__bar,
+.iphone__front .iphone__notch,
+.iphone__front .iphone__indicator,
+.iphone__front .iphone__frame {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.iphone__front .iphone__bar {
+  top: 0;
+  left: 0;
+  color: #e3e3e3;
+  font-family: sans-serif;
+  font-size: clamp(0.5em, 10px, 0.8em);
+  font-weight: bold;
+  padding: 0 1.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #080808;
+  width: 100%;
+  height: 30px;
+  z-index: 2;
+}
+
+.iphone__front .iphone__bar .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.6em;
+}
+
+.iphone__front .iphone__notch {
+  background-color: #000000;
+  top: 0;
+  width: 56%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  height: 25px;
+  position: relative;
+  z-index: calc(2 + 1);
+  border-radius: 0px 0px 20px 20px;
+}
+
+.iphone__front .iphone__notch .speaker,
+.iphone__front .iphone__notch .camera {
+  position: absolute;
+}
+
+.iphone__front .iphone__notch .speaker {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  height: 8px;
+  width: 30%;
+  z-index: calc(2 + 2);
+  background-color: black;
+  border-radius: 8px;
+  -webkit-box-shadow: inset 0px -3px 3px 0px rgba(240, 240, 240, 0.2);
+          box-shadow: inset 0px -3px 3px 0px rgba(240, 240, 240, 0.2);
+}
+
+.iphone__front .iphone__notch .camera {
+  right: 15%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: calc(2 + 2);
+  width: 12px;
+  height: 12px;
+  background-color: black;
+  border-radius: 12px;
+  -webkit-box-shadow: inset 0px -3px 2px 0px rgba(255, 255, 255, 0.2);
+          box-shadow: inset 0px -3px 2px 0px rgba(255, 255, 255, 0.2);
+}
+
+.iphone__front .iphone__notch .camera:after {
+  content: "";
+  position: absolute;
+  background-color: #2d4d76;
+  width: 6px;
+  z-index: calc(2 + 4);
+  height: 6px;
+  top: 3px;
+  left: 3px;
+  display: block;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0px -2px 2px rgba(0, 0, 0, 0.5);
+          box-shadow: inset 0px -2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.iphone__front .iphone__indicator {
+  position: absolute;
+  bottom: 7px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 40%;
+  height: 4px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+}
+
+.iphone__front .iphone__frame {
+  top: 30px;
+  border: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  width: 100%;
+  height: calc(100% - 30px);
+}
+
+.iphone__back {
+  -webkit-transform: rotateY(0.5turn) translateZ(20px);
+          transform: rotateY(0.5turn) translateZ(20px);
+  -webkit-box-shadow: 0px 0px 0px 20px #e8e8e8, inset 0 0 40px -40px #474747;
+          box-shadow: 0px 0px 0px 20px #e8e8e8, inset 0 0 40px -40px #474747;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-backface-visibility: visible;
+          backface-visibility: visible;
+}
+
+.iphone__back__logo {
+  --color-beans: #4A120F;
+  width: 7em;
+}
+
+.iphone__back__logo #beans {
+  fill: black;
+}
+
+.iphone__left {
+  top: 0;
+  left: -20px;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-transform: rotateY(-0.25turn) translateX(-20px);
+          transform: rotateY(-0.25turn) translateX(-20px);
+}
+
+.iphone__right {
+  top: 0;
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  right: -20px;
+  -webkit-transform: rotateY(0.25turn) translateX(20px);
+          transform: rotateY(0.25turn) translateX(20px);
+}
+
+.iphone__top {
+  top: -40px;
+  left: 0;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-transform: rotateX(0.25turn);
+          transform: rotateX(0.25turn);
+}
+
+.iphone__bottom {
+  bottom: -shadow-width;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-transform: rotateX(-0.25turn) translateY(20px);
+          transform: rotateX(-0.25turn) translateY(20px);
+}
+
+.spin {
+  -webkit-animation-name: spin;
+          animation-name: spin;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: cubic-bezier(0.79, -0.37, 0.32, 1.49);
+          animation-timing-function: cubic-bezier(0.79, -0.37, 0.32, 1.49);
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotateY(0turn) rotateZ(5deg) scale(1);
+            transform: rotateY(0turn) rotateZ(5deg) scale(1);
+  }
+  100% {
+    -webkit-transform: rotateY(1turn) rotateZ(5deg) scale(1);
+            transform: rotateY(1turn) rotateZ(5deg) scale(1);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotateY(0turn) rotateZ(5deg) scale(1);
+            transform: rotateY(0turn) rotateZ(5deg) scale(1);
+  }
+  100% {
+    -webkit-transform: rotateY(1turn) rotateZ(5deg) scale(1);
+            transform: rotateY(1turn) rotateZ(5deg) scale(1);
+  }
+}
+
 :root {
   font-size: 16px;
 }
@@ -26,6 +311,26 @@
           box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #0b0b0b;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #f2f2f2;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #454545;
+}
+
 html {
   overflow-x: hidden;
 }
@@ -35,7 +340,7 @@ body {
   padding: 0;
   line-height: 1.4;
   width: 100vw;
-  overflow: hidden;
+  overflow-x: hidden;
   padding: 0 1em;
   min-height: 100vh;
   font-family: Roboto, sans-serif;
@@ -67,6 +372,13 @@ body {
           align-items: center;
 }
 
+.flex-d-c {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 button {
   border: none;
 }
@@ -94,6 +406,23 @@ ul {
   width: max-content;
   opacity: 0;
   z-index: 3;
+}
+
+a, button {
+  background-color: #148FE8;
+  color: #000000;
+  padding: 0.5em 3em;
+  border-radius: 5px;
+  display: block;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  margin: 1em auto;
+  cursor: pointer;
+  font-size: 1em;
 }
 
 .body__section {
@@ -737,5 +1066,15 @@ ul {
   margin: 50px auto 0;
   cursor: pointer;
   font-size: 1em;
+}
+
+.hero {
+  text-align: center;
+}
+
+.demo {
+  border: 0.2em solid #f0f0f0;
+  background-color: transparent;
+  color: #f0f0f0;
 }
 /*# sourceMappingURL=style.css.map */
