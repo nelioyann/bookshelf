@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // doc.collection("books").get().then(snapshot =>{
           //   lg(snapshot)
           // })
-          $(".greetings").innerHTML = `Hello, ${doc.data().username} `;
+          $(".greetings").innerHTML = `Hello, ${doc.data() ? doc.data().username : "Anon"} `;
           // $(".header__title").innerHTML = `Logged in as ${user.email}`;
         });
 

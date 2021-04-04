@@ -408,7 +408,7 @@ ul {
   z-index: 3;
 }
 
-a, button {
+.cta, button {
   background-color: #148FE8;
   color: #000000;
   padding: 0.5em 3em;

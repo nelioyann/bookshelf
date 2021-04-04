@@ -1,4 +1,4 @@
-const version = 13;
+const version = 14;
 const staticCacheName = `site-static-v${version}`
 const dynamicCache = `site-dynamic-v${version}`
 // Fichier qui seront cacher
@@ -93,7 +93,7 @@ self.addEventListener('fetch',(event)=>{
 
             });
         }).catch((err)=> {
-            if(event.request.url.indexOf('.html') > -1){
+            if(event.request.url.includes('.html') > -1){
                 return caches.match('/index.html');
             } 
             // else{
