@@ -40,7 +40,7 @@
   <meta property="og:title" content="Bookshelf" />
   <meta property="og:description"
     content="A web application that keeps tracks of your favorite books for you. Never forget the books you've read and those you're currently reading." />
-  <meta name="twitter:card" content="summary_large_image"> />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@nelioyann" />
   <meta name="twitter:creator" content="@nelioyann" />
 
@@ -193,8 +193,9 @@
 
 
   <script>
+    gsap.set(".hero", {autoAlpha: 0})
     document.addEventListener("DOMContentLoaded", ()=>{
-    gsap.from(".hero", {y: -50, autoAlpha: 0, duration: 1, delay: 0.6, ease: "expo.out"})
+    gsap.from(".hero", {y: -50, autoAlpha: 0, duration: 1, delay: 1, ease: "expo.out"})
   //   const BOUNDS = 30
   // $(".iphone-container").addEventListener('pointermove', ({ x, y }) => {
   //   const newX = gsap.utils.mapRange(0, window.innerWidth, -BOUNDS, BOUNDS, x)
