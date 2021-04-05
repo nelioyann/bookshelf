@@ -193,9 +193,9 @@
 
 
   <script>
-    gsap.set(".hero", {autoAlpha: 0})
+    gsap.set(".hero", {y: -50,autoAlpha: 0})
     document.addEventListener("DOMContentLoaded", ()=>{
-    gsap.from(".hero", {y: -50, autoAlpha: 0, duration: 1, delay: 1, ease: "expo.out"})
+      gsap.to(".hero", {y: 0, autoAlpha: 1, duration: 1, delay: 1, ease: "expo.out"})
   //   const BOUNDS = 30
   // $(".iphone-container").addEventListener('pointermove', ({ x, y }) => {
   //   const newX = gsap.utils.mapRange(0, window.innerWidth, -BOUNDS, BOUNDS, x)
