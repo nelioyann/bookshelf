@@ -22,10 +22,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
     }
 
     // I am deeply ashamed about the following lines of code
-    $(".navigation__items__item-signup").addEventListener("click", switchForms)
-    $(".navigation__items__item-signin").addEventListener("click", switchForms)
-    $(".navigation__items__item-books").addEventListener("click", switchForms)
-    $(".navigation__items__item-add").addEventListener("click", switchForms)
+    $(".navigation__items__item-signup button").addEventListener("click", switchForms)
+    $(".navigation__items__item-signin button").addEventListener("click", switchForms)
+    $(".navigation__items__item-books button").addEventListener("click", switchForms)
+    $(".navigation__items__item-add button").addEventListener("click", switchForms)
     
     
     $$(".form__button").forEach(element => {

@@ -3,7 +3,7 @@
 // 360 x 680
 // $mobile-height: 700;
 $ratio: 1.9;
-$mobile-width: 200;
+$mobile-width: 260;
 $mobile-height: $mobile-width * $ratio; 
 $index-tapbar: 2;
 $size-tapbar: 30px;
@@ -31,8 +31,9 @@ $color-light: #f0f0f0;
     max-width: calc(#{$mobile-max-width} * 1px);
 
     @include breakpoint-down(400px) {
-        transform: scale(0.4);
-        display:none;
+        transform: scale(0.5);
+        margin-top: -3em;
+        // display:none;
 
     }
 
@@ -89,7 +90,7 @@ $color-case: rgb(232, 232, 232);
     &__right,
     &__top,
     &__bottom {
-        border-radius: 50px;
+        border-radius: 35px;
         // box-shadow: inset 0 0 4px rgb(71, 71, 71);
     }
 
@@ -102,7 +103,7 @@ $color-case: rgb(232, 232, 232);
     &__front {
 
         backface-visibility: visible;
-        box-shadow: 0px 0px 0px 11px darken($color-case, 80), 0px 0px 0px 13px darken($color-case, 4), 0px 0px 0px 20px darken($color-case, 3);
+        box-shadow: 0px 0px 0px 11px darken($color-case, 8), 0px 0px 0px 13px darken($color-case, 4), 0px 0px 0px 20px darken($color-case, 3);
         background-color: $color-case;
         position: relative;
         overflow: hidden;
@@ -126,7 +127,8 @@ $color-case: rgb(232, 232, 232);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: lighten($color-dark, 3);
+            background-color: lighten($color-dark, 6);
+            box-shadow: 0px 2px 0px 0px black;
             // background-color: #585A79;
             width: 100%;
             height: $size-tapbar;
@@ -134,7 +136,7 @@ $color-case: rgb(232, 232, 232);
 
             .right {
                 display: flex;
-                font-size: 0.6em;
+                // font-size: 0.6em;
             }
         }
 
@@ -200,7 +202,7 @@ $color-case: rgb(232, 232, 232);
             transform: translateX(-50%);
             width: 40%;
             height: 4px;
-            background-color: $color-light;
+            background-color: rgba($color-light, 0.5);
             border-radius: 10px;
         }
 
@@ -245,8 +247,9 @@ $color-case: rgb(232, 232, 232);
     &__left {
 
         top: 0;
-        left: -$shadow-width;
+        left: -$shadow-width + 10;
         transform-origin: left;
+        box-shadow: 0px -10px 0px $color-case;
         transform: rotateY(-0.25turn) translateX(-$mobile-thicness * 1px);
 
     }
@@ -254,20 +257,22 @@ $color-case: rgb(232, 232, 232);
     &__right {
         top: 0;
         transform-origin: right;
-        right: -$shadow-width;
+        right: -$shadow-width + 10;
+        box-shadow: 0px -10px 0px $color-case;
+
         transform: rotateY(0.25turn) translateX($mobile-thicness * 1px);
 
     }
 
     &__top {
-        top: -$shadow-width * 2;
+        top: -$shadow-width * 2 + 1;
         left: 0;
         transform-origin: bottom;
         transform: rotateX(0.25turn);
     }
 
     &__bottom {
-        bottom: -shadow-width;
+        bottom: -shadow-width + 10;
         transform-origin: bottom;
         transform: rotateX(-0.25turn) translateY($mobile-thicness * 1px);
 
@@ -292,8 +297,9 @@ $color-case: rgb(232, 232, 232);
 }
 
 @keyframes spin {
-    0% {
-        transform: rotateY(0turn) rotateZ(5deg) scale(1);
+    0%, 60% {
+        transform: rotateY(0turn) rotateZ(10deg) scale(1);
+        // transform: rotateX(calc(var(--rotate-x, 0) * 1deg)) rotateY(calc(var(--rotate-y, 0) * 1deg));
     }
 
     // 60%,80%{
@@ -302,7 +308,9 @@ $color-case: rgb(232, 232, 232);
     // }
 
     100% {
-        transform: rotateY(1turn) rotateZ(5deg) scale(1);
+        // transform: rotateX(calc(var(--rotate-x, 0) * 1deg)) rotateY(calc(var(360, 0) * 1deg));
+        transform: rotateY(1turn) rotateZ(10deg) scale(1);
+
 
     }
 }

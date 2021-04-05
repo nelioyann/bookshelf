@@ -6,16 +6,16 @@
 
 @media screen and (max-width: 400px) {
   .iphone-container {
-    -webkit-transform: scale(0.4);
-            transform: scale(0.4);
-    display: none;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+    margin-top: -3em;
   }
 }
 
 .iphone {
   position: relative;
-  height: 380px;
-  width: 200px;
+  height: 494px;
+  width: 260px;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   -webkit-perspective: 0px;
@@ -43,19 +43,19 @@
 }
 
 .iphone__left, .iphone__right, .iphone__top, .iphone__bottom {
-  border-radius: 50px;
+  border-radius: 35px;
 }
 
 .iphone__top, .iphone__bottom {
-  width: 200px;
+  width: 260px;
   height: 20px;
 }
 
 .iphone__front {
   -webkit-backface-visibility: visible;
           backface-visibility: visible;
-  -webkit-box-shadow: 0px 0px 0px 11px #1c1c1c, 0px 0px 0px 13px #dedede, 0px 0px 0px 20px #e0e0e0;
-          box-shadow: 0px 0px 0px 11px #1c1c1c, 0px 0px 0px 13px #dedede, 0px 0px 0px 20px #e0e0e0;
+  -webkit-box-shadow: 0px 0px 0px 11px #d4d4d4, 0px 0px 0px 13px #dedede, 0px 0px 0px 20px #e0e0e0;
+          box-shadow: 0px 0px 0px 11px #d4d4d4, 0px 0px 0px 13px #dedede, 0px 0px 0px 20px #e0e0e0;
   background-color: #e8e8e8;
   position: relative;
   overflow: hidden;
@@ -75,7 +75,7 @@
   left: 0;
   color: #e3e3e3;
   font-family: sans-serif;
-  font-size: clamp(0.5em, 10px, 0.8em);
+  font-size: clamp(0.5em, 13px, 0.8em);
   font-weight: bold;
   padding: 0 1.5em;
   display: -webkit-box;
@@ -87,7 +87,9 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background-color: #080808;
+  background-color: #0f0f0f;
+  -webkit-box-shadow: 0px 2px 0px 0px black;
+          box-shadow: 0px 2px 0px 0px black;
   width: 100%;
   height: 30px;
   z-index: 2;
@@ -97,7 +99,6 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 0.6em;
 }
 
 .iphone__front .iphone__notch {
@@ -169,7 +170,7 @@
           transform: translateX(-50%);
   width: 40%;
   height: 4px;
-  background-color: #f0f0f0;
+  background-color: rgba(240, 240, 240, 0.5);
   border-radius: 10px;
 }
 
@@ -214,9 +215,11 @@
 
 .iphone__left {
   top: 0;
-  left: -20px;
+  left: -10px;
   -webkit-transform-origin: left;
           transform-origin: left;
+  -webkit-box-shadow: 0px -10px 0px #e8e8e8;
+          box-shadow: 0px -10px 0px #e8e8e8;
   -webkit-transform: rotateY(-0.25turn) translateX(-20px);
           transform: rotateY(-0.25turn) translateX(-20px);
 }
@@ -225,13 +228,15 @@
   top: 0;
   -webkit-transform-origin: right;
           transform-origin: right;
-  right: -20px;
+  right: -10px;
+  -webkit-box-shadow: 0px -10px 0px #e8e8e8;
+          box-shadow: 0px -10px 0px #e8e8e8;
   -webkit-transform: rotateY(0.25turn) translateX(20px);
           transform: rotateY(0.25turn) translateX(20px);
 }
 
 .iphone__top {
-  top: -40px;
+  top: -39px;
   left: 0;
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
@@ -240,7 +245,7 @@
 }
 
 .iphone__bottom {
-  bottom: -shadow-width;
+  bottom: -shadow-width10;
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
   -webkit-transform: rotateX(-0.25turn) translateY(20px);
@@ -263,24 +268,24 @@
 }
 
 @-webkit-keyframes spin {
-  0% {
-    -webkit-transform: rotateY(0turn) rotateZ(5deg) scale(1);
-            transform: rotateY(0turn) rotateZ(5deg) scale(1);
+  0%, 60% {
+    -webkit-transform: rotateY(0turn) rotateZ(10deg) scale(1);
+            transform: rotateY(0turn) rotateZ(10deg) scale(1);
   }
   100% {
-    -webkit-transform: rotateY(1turn) rotateZ(5deg) scale(1);
-            transform: rotateY(1turn) rotateZ(5deg) scale(1);
+    -webkit-transform: rotateY(1turn) rotateZ(10deg) scale(1);
+            transform: rotateY(1turn) rotateZ(10deg) scale(1);
   }
 }
 
 @keyframes spin {
-  0% {
-    -webkit-transform: rotateY(0turn) rotateZ(5deg) scale(1);
-            transform: rotateY(0turn) rotateZ(5deg) scale(1);
+  0%, 60% {
+    -webkit-transform: rotateY(0turn) rotateZ(10deg) scale(1);
+            transform: rotateY(0turn) rotateZ(10deg) scale(1);
   }
   100% {
-    -webkit-transform: rotateY(1turn) rotateZ(5deg) scale(1);
-            transform: rotateY(1turn) rotateZ(5deg) scale(1);
+    -webkit-transform: rotateY(1turn) rotateZ(10deg) scale(1);
+            transform: rotateY(1turn) rotateZ(10deg) scale(1);
   }
 }
 
@@ -423,6 +428,10 @@ ul {
   margin: 1em auto;
   cursor: pointer;
   font-size: 1em;
+}
+
+img, video {
+  max-width: 100%;
 }
 
 .body__section {
@@ -1073,8 +1082,8 @@ ul {
 }
 
 .demo {
-  border: 0.2em solid #f0f0f0;
+  border: 0.2em solid #148FE8;
   background-color: transparent;
-  color: #f0f0f0;
+  color: #148FE8;
 }
 /*# sourceMappingURL=style.css.map */
